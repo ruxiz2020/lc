@@ -3,11 +3,8 @@ class MedianFinder:
         """
         Initialize your data structure here.
         """
-        self.upperHeap = [float('inf')]
-        self.lowerHeap = [float('inf')]
-        # lowerHeap's numbers are minus original numbers, because in Python heap is min-heap
-
-        # always maintain that their lens are equal, or upper has 1 more than lower
+        self.minHeap = []
+        self.maxHeap = []
 
     def addNum(self, num):
         """
@@ -15,33 +12,23 @@ class MedianFinder:
         :type num: int
         :rtype: void
         """
-        upperMin = + self.upperHeap[0]
-        lowerMax = - self.lowerHeap[0]
-
-        if num > upperMin or (lowerMax<=num<=upperMin and len(self.upperHeap)==len(self.lowerHeap)):
-            heappush(self.upperHeap, num)
-        else:
-            heappush(self.lowerHeap, -num)
-
-        # maintain the invariant that their lens are equal, or upper has 1 more than lower
-        if len(self.upperHeap)-len(self.lowerHeap) > 1:
-            heappush( self.lowerHeap, -heappop( self.upperHeap ) )
-        elif len(self.lowerHeap) > len(self.upperHeap):
-            heappush( self.upperHeap, -heappop( self.lowerHeap ) )
-
+        heappush(self.maxHeap, -num)
+        minTop = self.minHeap[0] if len(self.minHeap) else None
+        maxTop = self.maxHeap[0] if len(self.maxHeap) else None
+        if minTop < -maxTop or len(self.minHeap) + 1 < len(self.maxHeap):
+            heappush(self.minHeap, -heappop(self.maxHeap))
+        if len(self.maxHeap) < len(self.minHeap):
+            heappush(self.maxHeap, -heappop(self.minHeap))
 
     def findMedian(self):
         """
         Returns the median of current data stream
         :rtype: float
         """
-        if len(self.upperHeap) == len(self.lowerHeap):
-            upperMin = + self.upperHeap[0]
-            lowerMax = - self.lowerHeap[0]
-            return ( float(upperMin) + float(lowerMax) ) / 2.0
+        if len(self.minHeap) < len(self.maxHeap):
+            return -1.0 * self.maxHeap[0]
         else:
-            assert len(self.upperHeap) == len(self.lowerHeap) + 1
-            return float(self.upperHeap[0])
+            return (self.minHeap[0] - self.maxHeap[0]) / 2.0
 
 
 
