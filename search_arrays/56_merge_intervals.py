@@ -5,22 +5,15 @@ class Solution(object):
         :rtype: List[List[int]]
         O(nlogn)
         """
-        if not intervals: return []
-        # First sort the array lexicographically
-        intervals = sorted(intervals)
-
-        # Pairwise comparison
-        start, end = intervals[0]
-        res = []
-        for i in range(1, len(intervals)):
-            curStart, curEnd = intervals[i]
-            if curStart <= end:
-                end = max(end, curEnd)
+        if len(intervals) == 0:
+            return []
+        sorted_intervals = sorted(intervals, key = lambda x: x[0])
+        res = [sorted_intervals[0]]
+        for interval in sorted_intervals[1:]:
+            #the next node's smallest value is smaller than the prev node's largest value, then overlapping
+            if interval[0] <= res[-1][1]:
+                #left boundary is the largest value
+                res[-1][1]=max(interval[1], res[-1][1])
             else:
-                res.append([start, end])
-                start = curStart
-                end = curEnd
-
-        res.append([start, end])
-
+                res.append(interval)
         return res

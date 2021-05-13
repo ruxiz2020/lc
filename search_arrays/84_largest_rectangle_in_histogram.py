@@ -4,6 +4,7 @@ class Solution(object):
         :type heights: List[int]
         :rtype: int
         https://www.cnblogs.com/boring09/p/4231906.html
+        单调递增stack
         """
         stack = list()
         res = 0

@@ -41,3 +41,17 @@ class Solution(object):
             else:
                 right = mid
         return left - 1
+
+x = 4
+print("input: x = 4")
+
+ss = Solution()
+res = ss.mySqrt(x)
+print("res: " + str(res))
+
+x = 8
+print("input: x = 8")
+
+ss = Solution()
+res = ss.mySqrt(x)
+print("res: " + str(res))
