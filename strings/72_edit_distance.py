@@ -4,6 +4,13 @@ class Solution(object):
         :type word1: str
         :type word2: str
         :rtype: int
+
+        Input: word1 = "horse", word2 = "ros"
+        Output: 3
+        Explanation:
+        horse -> rorse (replace 'h' with 'r')
+        rorse -> rose (remove 'r')
+        rose -> ros (remove 'e')
         """
         l1, l2 = len(word1), len(word2)
         dp1 = [i for i in range(l1 + 1)]

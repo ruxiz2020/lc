@@ -4,6 +4,15 @@ class Solution(object):
         :type words: List[str]
         :type maxWidth: int
         :rtype: List[str]
+
+        Input: words = ["This", "is", "an", "example",
+        "of", "text", "justification."], maxWidth = 16
+        Output:
+[
+   "This    is    an",
+   "example  of text",
+   "justification.  "
+]
         """
         ans = []
         i = 0
