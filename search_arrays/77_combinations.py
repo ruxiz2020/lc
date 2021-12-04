@@ -4,7 +4,7 @@ class Solution(object):
         :type n: int
         :type k: int
         :rtype: List[List[int]]
-        N choose M
+        O(N choose M)
         """
         res = []
         self.helper(range(1, n + 1), k, res, [])
@@ -18,4 +18,3 @@ class Solution(object):
         else:
             self.helper(array[1:], k - 1, res, path + [array[0]])
             self.helper(array[1:], k, res, path)
-0
