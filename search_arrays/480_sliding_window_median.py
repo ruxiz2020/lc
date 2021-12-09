@@ -1,3 +1,5 @@
+import bisect
+
 class Solution:
     def medianSlidingWindow(self, nums, k):
         """
@@ -18,5 +20,18 @@ class Solution:
             index = bisect.bisect_left(win, nums[i-k])
             win.pop(index)
             bisect.insort_left(win, nums[i])
+            print(i)
+            print(win)
 
         return ans
+
+
+if __name__ == '__main__':
+
+    nums = [1,3,-1,-3,5,3,6,7]
+    k = 3
+
+    ss = Solution()
+    res = ss.medianSlidingWindow(nums, k)
+
+    print(res)
