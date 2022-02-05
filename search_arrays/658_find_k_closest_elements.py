@@ -12,3 +12,13 @@ class Solution(object):
             else:
                 arr.pop(0)
         return arr
+
+if __name__ == '__main__':
+
+    arr = [1,2,3,4,5]
+    k = 4
+    x = 3
+    ss = Solution()
+    res = ss.findClosestElements(arr, k, x)
+
+    print(res)
