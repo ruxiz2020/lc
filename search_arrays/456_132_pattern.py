@@ -19,6 +19,7 @@ class Solution(object):
 if __name__ == '__main__':
 
     nums = [1,2,3,4]
+    nums = [3,1,4,2]
     ss = Solution()
     res = ss.find132pattern(nums)
 

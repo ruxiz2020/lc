@@ -11,6 +11,8 @@ class Solution(object):
         heights.append(0)
         N = len(heights)
         for i in range(N):
+            print(stack)
+            print(res)
             if not stack or heights[i] > heights[stack[-1]]:
                 stack.append(i)
             else:
@@ -21,3 +23,13 @@ class Solution(object):
                     res = max(res, h * w)
                 stack.append(i)
         return res
+
+
+if __name__ == '__main__':
+
+    heights = [2,1,5,6,2,3]
+
+    ss = Solution()
+    res = ss.largestRectangleArea(heights)
+
+    print(res)

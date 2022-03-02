@@ -24,9 +24,9 @@ class Solution:
             if pre[0] < 0:
                 heapq.heappush(heap, pre)
             pre = curr
-            print(heap)
+            #print(heap)
 
-        #print(res)
+        print(res)
         return "" if len(res) != len(S) else res
 
 if __name__ == '__main__':
