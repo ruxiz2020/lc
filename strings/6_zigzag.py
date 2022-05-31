@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: str
         O(n)
         """
-        if numRows == 1: return s
+        if numRows == 1 or numRows >= len(s): return s
         ans = ""
         interval = 2 * (numRows - 1)
         for i in range(0, len(s), interval):

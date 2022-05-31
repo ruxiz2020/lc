@@ -10,7 +10,7 @@ class Solution(object):
 
         while (low <= high):
 
-            mid = low + (high - low) / 2
+            mid = low + (high - low) // 2
             if (target < nums[mid]):
                 high = mid - 1
 

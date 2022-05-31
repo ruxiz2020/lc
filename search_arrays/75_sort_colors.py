@@ -18,6 +18,7 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
+        Time complexity : O(nlogn) 
         """
         zero = 0
         two = len(nums) - 1

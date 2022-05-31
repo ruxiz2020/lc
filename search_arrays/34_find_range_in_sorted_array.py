@@ -15,7 +15,7 @@ class Solution(object):
         # find in range [left, right)
         left, right = 0, len(nums)
         while left < right:
-            mid = left + (right - left) / 2
+            mid = left + (right - left) // 2
             if nums[mid] < target:
                 left = mid + 1
             else:
@@ -26,11 +26,9 @@ class Solution(object):
         # find in range [left, right)
         left, right = 0, len(nums)
         while left < right:
-            mid = left + (right - left) / 2
+            mid = left + (right - left) // 2
             if nums[mid] <= target:
                 left = mid + 1
             else:
                 right = mid
         return left
-
-        

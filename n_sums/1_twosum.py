@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         keys = {}
-        for i in xrange(len(nums)):
+        for i in range(len(nums)):
             if target - nums[i] in keys:
                 return [keys[target - nums[i]], i]
             if nums[i] not in keys:
