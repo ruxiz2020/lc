@@ -30,6 +30,19 @@ class Solution:
         return inorder(root)
 
 
+class Solution:
+    def kthSmallest(self, root, k):
+        def inorder(root):
+            if not root:
+                return []
+            in_left = inorder(root.left)
+            root_val = [root.val]
+            in_right = inorder(root.right)
+            return in_left + root_val + in_right
+
+        return inorder(root)[k - 1]
+
+
 arr = [3, 1, 4, np.nan, 2]
 k = 1
 

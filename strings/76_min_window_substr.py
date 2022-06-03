@@ -5,23 +5,46 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        target = [0] * 128
-        for c in t: target[ord(c)] += 1
+        if t == "": return ""
+        countT = {}
 
-        cnt, start = len(t), 0
-        ans_s, ans_e = 0, len(s) + 1
+        for c in t:
+            countT[c] = 1 + countT.get(c, 0)
 
-        for i in range(len(s)):
-            if target[ord(s[i])] > 0:
-                cnt -= 1
-            target[ord(s[i])] -= 1
+        have, need = 0, len(countT)
+        res, resLen = '', float('inf')
+        l, r = 0, 0
 
-            while cnt == 0:
-                if i - start < ans_e - ans_s:
-                    ans_s, ans_e = start, i
+        for r in range(len(s)): #enlarge the window to the right
+            if s[r] in countT:
+                countT[s[r]] -= 1
+                if countT[s[r]] == 0:
+                    have += 1
 
-                if target[ord(s[start])] == 0:
-                    cnt += 1
-                target[ord(s[start])] += 1
-                start += 1
-        return "" if ans_e - ans_s + 1 > len(s) else s[ans_s: ans_e + 1]
+            #move left pointer
+            while(l <= r and have == need):
+                Len = r + 1 - l
+                if Len < resLen:
+                    res = s[l:r+1]
+                    resLen = Len
+
+                if s[l] in countT:
+                    countT[s[l]] += 1
+                    if countT[s[l]] == 1:
+                        have -= 1
+
+                l += 1
+
+        return res
+
+
+
+
+if __name__ == '__main__':
+
+    s = "ADOBECODEBANC"
+    t = "ABC"
+
+    ss = Solution()
+    res = ss.minWindow(s, t)
+    print(res)

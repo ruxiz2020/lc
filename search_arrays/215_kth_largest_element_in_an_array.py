@@ -1,10 +1,12 @@
+import heapq
+
 class Solution(object):
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
         :type k: int
         :rtype: int
-        N(log k)
+        n + k(log n)
         """
         heapq.heapify(nums)
         amount = len(nums)
@@ -20,6 +22,9 @@ class Solution(object):
         :type nums: List[int]
         :type k: int
         :rtype: int
+        quick select
+        avg: O(n)
+        worst: O(n * n)
         """
         def partition(arr, l, r):
 

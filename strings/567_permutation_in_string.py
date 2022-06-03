@@ -1,3 +1,5 @@
+import collections
+
 class Solution(object):
     def checkInclusion(self, s1, s2):
         """
@@ -20,3 +22,12 @@ class Solution(object):
             l += 1
             r += 1
         return False
+
+if __name__ == '__main__':
+
+    s1 = "ab"
+    s2 = "eidbaooo"
+
+    ss = Solution()
+    res = ss.checkInclusion(s1, s2)
+    print(res)
