@@ -4,6 +4,8 @@ class Solution(object):
         :type coins: List[int]
         :type amount: int
         :rtype: int
+        bottom up
+        O(nm)
         """
         dp = [float('inf')] * (amount + 1)
         dp[0] = 0
@@ -15,6 +17,7 @@ class Solution(object):
                     #print(dp[i], dp[i - coin] + 1)
                     dp[i] = min(dp[i], dp[i - coin] + 1)
                     #print('dp[i]')
+                    print(coin)
                     print(dp)
         return -1 if dp[amount] == float('inf') else dp[amount]
 

@@ -4,7 +4,7 @@ class Solution(object):
         :type candidates: List[int]
         :type target: int
         :rtype: List[List[int]]
-        O(N ^M/T+1)
+        O(2 ** T)
         """
         res = []
         candidates.sort()
@@ -24,31 +24,13 @@ class Solution(object):
             self.dfs(nums, target - nums[i], i, res, path + [nums[i]])
 
 
-def combinationSum(self, candidates, target):
-	def combination_sum(cur_ans, cur_sum, cand_idx):
-        if cur_sum >= target:
-            if cur_sum == target:
-                ans.append(cur_ans)
-            return
-        for i in range(cand_idx, len(candidates)):
-            combination_sum(cur_ans + [candidates[i]], cur_sum + candidates[i], i)
-	ans = []
-	combination_sum([], 0, 0)
-	return ans
 
+if __name__ == '__main__':
 
-def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-	# BFS
-	from collections import deque
-	queue = deque() # [cur_target, cur_ans, cand_idx]
-	queue.append((target, [], 0))
-	ans = []
-	while queue:
-		cur_target, cur_ans, cand_idx = queue.popleft()
-		for i in range(cand_idx, len(candidates)):
-			new_target = cur_target - candidates[i]
-			if new_target == 0:
-				ans.append(cur_ans + [candidates[i]])
-			elif new_target > 0:
-				queue.append((cur_target - candidates[i], cur_ans + [candidates[i]], i))
-	return ans
+    candidates = [2,3,6,7]
+    target = 7
+
+    ss = Solution()
+    res = ss.combinationSum(candidates, target)
+
+    print(res)
