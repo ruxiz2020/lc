@@ -27,7 +27,7 @@ class Twitter(object):
         Initialize your data structure here.
         """
         self.ts = 0
-        self.userMap = dict()
+        self.userMap = dict() # hash set
 
 
     def postTweet(self, userId, tweetId):

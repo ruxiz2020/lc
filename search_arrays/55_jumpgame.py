@@ -11,3 +11,13 @@ class Solution(object):
                 return False
             reach = max(reach, i + num)
         return True
+
+
+if __name__ == '__main__':
+
+    nums = [2,3,1,1,4]
+
+    ss = Solution()
+    res = ss.canJump(nums)
+
+    print(res)

@@ -42,10 +42,11 @@ O(k)O(k) The code above present applies in-place method which cost O(1)O(1) spac
         root = res = ListNode(None)
         for l in lists:
             while l:
-                heapq.heappush(heap, l.val)
+                heapq.heappush(heap, l.val) # O(log n)
                 l = l.next
+        print(heap)
         while heap:
-            res.next = ListNode(heapq.heappop(heap))
+            res.next = ListNode(heapq.heappop(heap)) # O(log n) 
             res = res.next
         return root.next
 

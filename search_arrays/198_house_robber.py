@@ -6,11 +6,12 @@ class Solution:
         return dp1
 
 
-nums = [2,7,9,3,1]
+if __name__ == '__main__':
+    nums = [2,7,9,3,1]
 
-print("nums = [2,7,9,3,1]")
+    print("nums = [2,7,9,3,1]")
 
-ss = Solution()
-res = ss.rob(nums)
+    ss = Solution()
+    res = ss.rob(nums)
 
-print(res)
+    print(res)
