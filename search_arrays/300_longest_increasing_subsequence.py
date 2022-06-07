@@ -5,14 +5,14 @@ class Solution(object):
         :rtype: int
         """
         if not nums: return 0
-        dp = [0] * len(nums)
-        dp[0] = 1
-        for i in range(1, len(nums)):
-            tmax = 1
-            for j in range(0, i):
-                if nums[i] > nums[j]:
-                    tmax = max(tmax, dp[j] + 1)
-            dp[i] = tmax
+        dp = [1] * len(nums)
+
+        for i in range(len(nums) - 1, -1, -1):
+
+            for j in range(i + 1, len(nums)):
+                if nums[i] < nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+
         return max(dp)
 
 

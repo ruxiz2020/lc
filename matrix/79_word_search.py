@@ -4,29 +4,36 @@ class Solution(object):
         :type board: List[List[str]]
         :type word: str
         :rtype: bool
-        O(N 3^L)
+        O(m * n * dfs(4 ^ len(word)))
         """
-        def dfs(x, y, p):
-            if p == l:
-                return True
-            for dirx, diry in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                curx, cury = x + dirx, y + diry
-                if 0 <= curx < m and 0 <= cury < n and flag[curx][cury] and board[curx][cury] == word[p]:
-                    flag[curx][cury] = False
-                    if dfs(curx, cury, p + 1):
-                        flag[curx][cury] = True
-                        return True
-                    flag[curx][cury] = True
-            return False
-
         m, n = len(board), len(board[0])
-        l = len(word)
-        flag = [[True] * n for _ in range(m)]
+        paths = set()
+        def dfs(x, y, p):
+            if p == len(word):
+                return True
+            if (x < 0 or y < 0 or x >= m or y >= n or \
+                word[p] != board[x][y] or (x, y) in paths):
+                return False
+            paths.add((x, y))
+            res = (dfs(x + 1, y, p + 1) or \
+                   dfs(x - 1, y, p + 1) or \
+                   dfs(x, y + 1, p + 1) or \
+                   dfs(x, y - 1, p + 1))
+            paths.remove((x, y))
+            return res
+
         for i in range(m):
             for j in range(n):
-                if board[i][j] == word[0]:
-                    flag[i][j] = False
-                    if dfs(i, j, 1):
-                        return True
-                    flag[i][j] = True
+                if dfs(i, j, 0):
+                    return True
         return False
+
+if __name__ == '__main__':
+
+    board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+    word = "ABCCED"
+
+    ss = Solution()
+    res = ss.exist(board, word)
+
+    print(res)

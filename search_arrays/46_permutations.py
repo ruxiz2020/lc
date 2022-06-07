@@ -5,6 +5,9 @@ class Solution(object):
         :rtype: List[List[int]]
         O(N!)
         """
+        if len(nums) == 1:
+            return [nums.copy()]
+            
         res = []
         self.dfs(nums, res, [])
         return res
@@ -13,5 +16,15 @@ class Solution(object):
         if not nums:
             res.append(path)
         else:
-            for i in xrange(len(nums)):
+            for i in range(len(nums)):
                 self.dfs(nums[:i] + nums[i + 1:], res, path + [nums[i]])
+
+
+if __name__ == '__main__':
+
+    nums = [1,2,3]
+
+    ss = Solution()
+    res = ss.permute(nums)
+
+    print(res)

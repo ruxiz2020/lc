@@ -1,50 +1,59 @@
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.isWord = False
+
+    def addWord(self, word):
+        cur = self
+        for c in word:
+            if c not in cur.children:
+                cur.children[c] = TrieNode()
+            cur = cur.children[c]
+        cur.isWord = True
+
 class Solution:
     def findWords(self, board, words):
-        def dfs(x, y, root):
-            letter = board[x][y]
-            cur = root[letter]
-            word = cur.pop('#', False)
-            if word:
-                res.append(word)
-            board[x][y] = '*'
-            for dirx, diry in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                curx, cury = x + dirx, y + diry
-                if 0 <= curx < m and 0 <= cury < n and board[curx][cury] in cur:
-                    dfs(curx, cury, cur)
-            board[x][y] = letter
-            if not cur:
-                root.pop(letter)
+        root = TrieNode()
+        for w in words:
+            root.addWord(w)
 
-        trie = {}
-        for word in words:
-            cur = trie
-            for letter in word:
-                cur = cur.setdefault(letter, {})
-            cur['#'] = word
-        print(trie)
+
         m, n = len(board), len(board[0])
-        res = []
+        res, visit = set(), set()
+
+        def dfs(x, y, node, word):
+
+            if (x < 0 or y < 0 or x == m or y == n or \
+                (x, y) in visit or board[x][y] not in node.children):
+                return
+
+            visit.add((x, y))
+            node = node.children[board[x][y]]
+            word += board[x][y]
+
+            if node.isWord:
+                res.add(word)
+
+            dfs(x + 1, y, node, word)
+            dfs(x - 1, y, node, word)
+            dfs(x, y + 1, node, word)
+            dfs(x, y - 1, node, word)
+            visit.remove((x, y))
+
+
         for i in range(m):
             for j in range(n):
-                if board[i][j] in trie:
-                    dfs(i, j, trie)
-        return res
+                dfs(i, j, root, "")
+
+        return list(res)
 
 
-board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]]
-words = ["oath","pea","eat","rain"]
 
-# trie:
-# {'o': {'a': {'t': {'h': {'#': 'oath'}}}}, 'p': {'e': {'a': {'#': 'pea'}}},
-# 'e': {'a': {'t': {'#': 'eat'}}}, 'r': {'a': {'i': {'n': {'#': 'rain'}}}}}
+if __name__ == '__main__':
+    board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]]
+    words = ["oath","pea","eat","rain"]
 
-print("board:")
-print(board)
+    ss = Solution()
+    res = ss.findWords(board, words)
 
-print("words:")
-print(words)
-
-ss = Solution()
-res = ss.findWords(board, words)
-
-print(res)
+    print(res)
