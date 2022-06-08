@@ -11,7 +11,7 @@ class Solution(object):
 
     def dfs(self, nums, index, res, path):
         res.append(path)
-        for i in range(index, len(nums)):
+        for i in  range(index, len(nums)):
             self.dfs(nums, i + 1, res, path + [nums[i]])
 
 

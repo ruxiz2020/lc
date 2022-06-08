@@ -24,3 +24,18 @@ class Solution(object):
                     visited.add((x, y))
                     findIsland(x, y)
         return count
+
+
+if __name__ == '__main__':
+
+    grid = [
+        ["1", "1", "1", "1", "0"],
+        ["1", "1", "0", "1", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"]
+    ]
+
+    ss = Solution()
+    res = ss.numIslands(grid)
+
+    print(res)
