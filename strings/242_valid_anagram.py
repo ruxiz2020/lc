@@ -4,6 +4,7 @@ class Solution(object):
         :type s: str
         :type t: str
         :rtype: bool
+        O(s+t)
         """
         if len(s) != len(t):
             return False
@@ -15,3 +16,13 @@ class Solution(object):
         for c in t:
             beta[c] = beta.get(c, 0) + 1
         return alpha == beta
+
+
+if __name__ == '__main__':
+
+    s = "anagram"
+    t = "nagaram"
+
+    ss = Solution()
+    res = ss.isAnagram(s, t)
+    print(res)

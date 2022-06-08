@@ -11,5 +11,15 @@ class Solution(object):
 
     def dfs(self, nums, index, res, path):
         res.append(path)
-        for i in xrange(index, len(nums)):
+        for i in range(index, len(nums)):
             self.dfs(nums, i + 1, res, path + [nums[i]])
+
+
+if __name__ == '__main__':
+
+    nums = [1,2,3]
+
+    ss = Solution()
+    res = ss.subsets(nums)
+
+    print(res)

@@ -57,9 +57,10 @@ def array_to_bst(array_nums):
     return node
 
 
-root = array_to_bst(array_nums=sorted(arr))
-print("input: " + "arr = [3,1,4,null,2]; k = 1")
+if __name__ == '__main__':
+    root = array_to_bst(array_nums=sorted(arr))
+    print("input: " + "arr = [3,1,4,null,2]; k = 1")
 
-ss = Solution()
-res = ss.kthSmallest(root, k)
-print(res)
+    ss = Solution()
+    res = ss.kthSmallest(root, k)
+    print(res)

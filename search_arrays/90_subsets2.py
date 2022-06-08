@@ -16,3 +16,14 @@ class Solution(object):
             if i > index and nums[i] == nums[i - 1]:
                 continue
             self.dfs(nums, i + 1, res, path + [nums[i]])
+
+
+
+if __name__ == '__main__':
+
+    nums = [1,2,2]
+
+    ss = Solution()
+    res = ss.subsetsWithDup(nums)
+
+    print(res)
