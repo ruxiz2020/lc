@@ -3,6 +3,7 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: bool
+        O(n)
         """
         if root == None:
             return True
