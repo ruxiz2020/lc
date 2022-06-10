@@ -16,3 +16,13 @@ Now, we check last two digits. If the last two digit is in greater than ‘09’
             if i != 1 and '09' < s[i-2:i] < '27':
                 dp[i] += dp[i-2]
         return dp[-1]
+
+
+if __name__ == '__main__':
+
+    s = "226"
+    s = "06"
+
+    ss = Solution()
+    res = ss.numDecodings(s)
+    print(res)

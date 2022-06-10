@@ -12,3 +12,12 @@ class Solution:
         for i in range(2, N + 1):
             dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
         return dp[-1]
+
+
+if __name__ == '__main__':
+
+    cost = [10,15,20]
+    ss = Solution()
+    res = ss.minCostClimbingStairs(cost)
+
+    print(res)
