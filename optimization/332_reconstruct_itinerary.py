@@ -8,8 +8,10 @@ class Solution:
         res = ["JFK"]
 
         tickets.sort()
+        print(tickets)
         for u, v in tickets:
             adj[u].append(v)
+        print(adj)
 
         def dfs(cur):
             if len(res) == len(tickets) + 1:
@@ -28,3 +30,13 @@ class Solution:
             return False
         dfs("JFK")
         return res
+
+
+if __name__ == '__main__':
+
+    tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+
+    ss = Solution()
+    res = ss.findItinerary(tickets)
+
+    print(res)

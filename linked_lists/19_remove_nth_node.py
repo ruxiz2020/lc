@@ -30,8 +30,9 @@ class Solution(object):
         root = ListNode(0)
         root.next = head
         fast, slow, pre = root, root, root
-        while n - 1:
-            
+        
+        while n > 0:
+
             fast = fast.next
             n -= 1
 
