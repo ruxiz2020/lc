@@ -1,22 +1,24 @@
-class Solution(object):
-    def partitionLabels(self, S):
-        """
-        :type S: str
-        :rtype: List[int]
-        """
-        lindex = {c: i for i, c in enumerate(S)}
-        print(lindex)
-        j = anchor = 0
-        ans = []
-        for i, c in enumerate(S):
+class Solution:
+    def partitionLabels(self, S: str) -> List[int]:
+        count = {}
+        res = []
+        i, length = 0, len(S)
+        for j in range(length):
+            c = S[j]
+            count[c] = j
 
-            j = max(j, lindex[c])
-            if i == j:
-                print(c, j, anchor)
-                ans.append(j - anchor + 1)
-                anchor = j + 1
-        return ans
+        curLen = 0
+        goal = 0
+        while i < length:
+            c = S[i]
+            goal = max(goal, count[c])
+            curLen += 1
 
+            if goal == i:
+                res.append(curLen)
+                curLen = 0
+            i += 1
+        return res
 
 
 if __name__ == '__main__':

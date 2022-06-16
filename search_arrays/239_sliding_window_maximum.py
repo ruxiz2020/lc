@@ -1,25 +1,24 @@
 import collections
+from typing import List
 
-class Solution(object):
-    def maxSlidingWindow(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        a deque that is always decreasing 
-        O(n)
-        """
-        que = collections.deque() # [[i, num]]
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        indexQ = collections.deque()
+        valQ = collections.deque()
+
         res = []
-        for i, num in enumerate(nums):
-            print(que)
-            if que and i - que[0][0] >= k:
-                que.popleft()
-            while que and que[-1][1] <= num:
-                que.pop()
-            que.append([i, num])
-            if i >= k - 1:
-                res.append(que[0][1])
+        for i, n in enumerate(nums):
+            while valQ and n > valQ[-1]:
+                valQ.pop()
+                indexQ.pop()
+            valQ.append(n)
+            indexQ.append(i)
+
+            while i - indexQ[0] + 1 > k:
+                valQ.popleft()
+                indexQ.popleft()
+            if i + 1 >= k:
+                res.append(valQ[0])
         return res
 
 

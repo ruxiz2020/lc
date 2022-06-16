@@ -1,27 +1,31 @@
-class Solution(object):
-    def solveNQueens(self, n):
-        """
-        :type n: int
-        :rtype: List[List[str]]
-        O(N!)
-        """
-        #check whether a queen can be placed in row i, column j
-        def valid(i,j):
-            for row in range(i):
-                if board[row] == j or abs(row-i)==abs(board[row]-j):
-                    return False
-            return True
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = set()
+        posDiag = set() # (r + c)
+        negDiag = set() # (r - c)
 
-        def dfs(i,current_values):
-            if i == n:
-                res.append(current_values)
-                return
-            for j in xrange(n):
-                if valid(i,j):
-                    board[i] = j
-                    dfs(i+1,current_values+[ "."*j+"Q"+"."*(n-j-1) ])
-
-        board = [-1]*n # the j index of the queen placement at each row.
         res = []
-        dfs(0,[])
+        board = [["."] * n for i in range(n)]
+        def backtrack(r):
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+
+            for c in range(n):
+                if c in col or (r + c) in posDiag or (r - c) in negDiag:
+                    continue
+
+                col.add(c)
+                posDiag.add(r + c)
+                negDiag.add(r - c)
+                board[r][c] = "Q"
+
+                backtrack(r + 1)
+
+                col.remove(c)
+                posDiag.remove(r + c)
+                negDiag.remove(r - c)
+                board[r][c] = "."
+        backtrack(0)
         return res

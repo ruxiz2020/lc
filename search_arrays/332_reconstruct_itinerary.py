@@ -1,22 +1,33 @@
-from collections import defaultdict
+import collections
+from typing import List
 
 class Solution:
-    def findItinerary(self, tickets):
-        def dfs(dep):
-            arr = paths[dep]
-            while arr:
-                dfs(arr.pop())
-            res.append(dep)
+    '''O(E**2)'''
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        adj = { u:collections.deque() for u, v in tickets }
+        res = ["JFK"]
 
-        res = []
-        paths = defaultdict(list)
-        tickets.sort(key=lambda x: x[1], reverse=True)
-        for s, t in tickets:
-            paths[s].append(t)
-        print(paths)
-        dfs('JFK')
-        print(res)
-        return res[::-1]
+        tickets.sort()
+        for u, v in tickets:
+            adj[u].append(v)
+
+        def dfs(cur):
+            if len(res) == len(tickets) + 1:
+                return True
+            if cur not in adj:
+                return False
+
+            temp = list(adj[cur])
+            for v in temp:
+                adj[cur].popleft()
+                res.append(v)
+                if dfs(v):
+                    return res
+                res.pop()
+                adj[cur].append(v)
+            return False
+        dfs("JFK")
+        return res
 
 
 if __name__ == '__main__':
