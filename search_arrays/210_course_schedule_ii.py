@@ -1,25 +1,34 @@
 import collections
+from typing import List
 
-class Solution(object):
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        prereq = { c:[] for c in range(numCourses) }
+        for crs, pre in prerequisites:
+            prereq[crs].append(pre)
 
-    def findOrder(self, numCourses, prerequisites):
-        courses = collections.defaultdict(set)
-        pres = collections.defaultdict(set)
-        res = []
-        for course, pre in prerequisites:
-            courses[course].add(pre)
-            pres[pre].add(course)
-        stack=[n for n in range(numCourses) if not courses[n]]
-        count = 0
-        while stack:
-            no_pre = stack.pop()
-            res.append(no_pre)
-            count+=1
-            for course in pres[no_pre]:
-                courses[course].remove(no_pre)
-                if not courses[course]:
-                    stack.append(course)
-        return res if count==numCourses else []
+        output = []
+        visit, cycle = set(), set()
+        def dfs(crs):
+            if crs in cycle:
+                return False
+            if crs in visit: # if visited skip
+                return True
+
+            cycle.add(crs)
+            for pre in prereq[crs]:
+                if dfs(pre) == False:
+                    return False
+            cycle.remove(crs)
+            visit.add(crs)
+            output.append(crs)
+            return True
+
+        for c in range(numCourses):
+            if dfs(c) == False:
+                return []
+        return output
+
 
 
 if __name__ == '__main__':

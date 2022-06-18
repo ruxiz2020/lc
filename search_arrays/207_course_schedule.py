@@ -1,36 +1,32 @@
 import collections
+from typing import List
 
-class Solution(object):
-    def canFinish(self, N, prerequisites):
-        """
-        :type N,: int
-        :type prerequisites: List[List[int]]
-        :rtype: bool
-        """
-        self.graph = collections.defaultdict(list)
-        for u, v in prerequisites:
-            self.graph[u].append(v)
-        # 0 = Unknown, 1 = visiting, 2 = visited
-        self.visitSet = set()
-        for crs in range(N):
-            if not self.dfs(crs):
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # dfs
+        preMap = { i:[] for i in range(numCourses)}
+
+        # map each course to : prereq list
+        for crs, pre in prerequisites:
+            preMap[crs].append(pre)
+
+        visiting = set()
+        def dfs(crs):
+            if crs in visiting:
                 return False
-        return True
+            if preMap[crs] == []:
+                return True
 
-    # Can we add node i to visited successfully?
-    def dfs(self, crs):
-
-        if crs in self.visitSet:
-            return False
-        if self.graph[crs] == []:
+            visiting.add(crs)
+            for pre in preMap[crs]:
+                if dfs(pre) == False:
+                    return False
+            visiting.remove(crs)
+            preMap[crs] = []
             return True
-        self.visitSet.add(crs)
 
-        for pre in self.graph[crs]:
-            if not self.dfs(pre):
-                return False
-        self.visitSet.remove(crs)
-        self.graph[crs] = []
+        for c in range(numCourses):
+            if not dfs(c): return False
         return True
 
 
