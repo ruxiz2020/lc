@@ -4,15 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def invertTree(self, root):
-        """
-        :type root: TreeNode
-        :rtype: TreeNode
-        """
-        if root == None:
-            return root
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+
+        # swap the children
         tmp = root.left
-        root.left = self.invertTree(root.right)
-        root.right = self.invertTree(tmp)
+        root.left = root.right
+        root.right = tmp
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
         return root

@@ -1,47 +1,34 @@
-class Solution2(object):
+class Solution(object):
     def alienOrder(self, words):
-        # Find ancestors of each node by DFS.
-        nodes, ancestors = sets.Set(), {}
-        for i in xrange(len(words)):
-            for c in words[i]:
-                nodes.add(c)
-        for node in nodes:
-            ancestors[node] = []
-        for i in xrange(1, len(words)):
-            if len(words[i-1]) > len(words[i]) and \
-                words[i-1][:len(words[i])] == words[i]:
-                    return ""
-            self.findEdges(words[i - 1], words[i], ancestors)
+        adj = { c: set() for w in words for c in w }
 
-        # Output topological order by DFS.
-        result = []
-        visited = {}
-        for node in nodes:
-            if self.topSortDFS(node, node, ancestors, visited, result):
+        for i in range(len(words) - 1):
+            w1, w2 = words[i], words[i + 1]
+            minLen = min(len(w1), len(w2))
+            if len(w1) > len(w2) and w1[:minLen] == w2[:minLen]:
                 return ""
+            for j in range(minLen):
+                if w1[j] != w2[j]:
+                    adj[w1[j]].add(w2[j])
+                    break
 
-        return "".join(result)
+        visit = {} # False=visited, True=visited & current path
+        res = []
+        def dfs(c):
+            if c in visit: # loop
+                return visit[c]
 
+            visit[c] = True
 
-    # Construct the graph.
-    def findEdges(self, word1, word2, ancestors):
-        min_len = min(len(word1), len(word2))
-        for i in xrange(min_len):
-            if word1[i] != word2[i]:
-                ancestors[word2[i]].append(word1[i])
-                break
-
-
-    # Topological sort, return whether there is a cycle.
-    def topSortDFS(self, root, node, ancestors, visited, result):
-        if node not in visited:
-            visited[node] = root
-            for ancestor in ancestors[node]:
-                if self.topSortDFS(root, ancestor, ancestors, visited, result):
+            for nei in adj[c]:
+                if dfs(nei):
                     return True
-            result.append(node)
-        elif visited[node] == root:
-            # Visited from the same root in the DFS path.
-            # So it is cyclic.
-            return True
-        return False
+
+            visit[c] = False
+            res.append(c)
+
+        for c in adj:
+            if dfs(c):
+                return ""
+        res.reverse()
+        return "".join(res)

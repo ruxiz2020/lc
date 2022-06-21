@@ -43,6 +43,7 @@ class Solution(object):
         :type p: TreeNode
         :type q: TreeNode
         :rtype: TreeNode
+        log(n)
         """
         current = root
         while root:

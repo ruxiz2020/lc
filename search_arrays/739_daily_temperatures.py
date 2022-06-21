@@ -1,5 +1,6 @@
 class Solution:
     def dailyTemperatures(self, T):
+        '''Monotonic decreasing stack'''
         if not T:
             return []
         res = [0] * len(T)
@@ -11,3 +12,13 @@ class Solution:
                 res[stack_top_index] = count
             stack.append((val, index))
         return res
+
+
+if __name__ == '__main__':
+
+    temperatures = [73,74,75,71,69,72,76,73]
+
+    ss = Solution()
+    res = ss.dailyTemperatures(temperatures)
+
+    print(res)
