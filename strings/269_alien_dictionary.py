@@ -24,7 +24,7 @@ class Solution(object):
                 if dfs(nei):
                     return True
 
-            visit[c] = False
+            visit[c] = False # no longer in current path
             res.append(c)
 
         for c in adj:
