@@ -4,27 +4,19 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-This question can be solved by Breadth First Search.
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        res = []
+        q = collections.deque()
+        if root: q.append(root)
 
-The answer is very direct, use bfs to traversal level by level and for each level we loop through node and append them all to a tmp list, then we append the tmp list to the answer list and return. To apply FIFO, we can use deque for popleft()
-        """
-        if root is None: return []
-        queue, res = collections.deque([root]),[]
-        while queue:
-            size = len(queue)
-            tmp=[]
-            while size>0:
-                node = queue.popleft()
-                tmp.append(node.val)
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-                size-=1
-            res.append(tmp)
+        while q:
+            val = []
+
+            for i in range(len(q)):
+                node = q.popleft()
+                val.append(node.val)
+                if node.left: q.append(node.left)
+                if node.right: q.append(node.right)
+            res.append(val)
         return res

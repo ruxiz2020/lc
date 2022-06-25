@@ -43,6 +43,22 @@ class Solution:
         return inorder(root)[k - 1]
 
 
+class Solution:
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
+        stack = []
+        curr = root
+
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
+            k -= 1
+            if k == 0:
+                return curr.val
+            curr = curr.right
+
+
 arr = [3, 1, 4, np.nan, 2]
 k = 1
 

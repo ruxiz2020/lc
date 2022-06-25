@@ -1,6 +1,7 @@
 from typing import List
 
 class Solution:
+    '''O(n)'''
     def longestConsecutive(self, nums: List[int]) -> int:
         numSet = set(nums)
         longest = 0

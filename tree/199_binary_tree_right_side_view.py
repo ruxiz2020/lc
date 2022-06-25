@@ -5,15 +5,21 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
-class Solution(object):
-    def rightSideView(self, root):
-        '''time complexity is O(n)'''
-        def dfs(root, result_list, level):
-            if not root:
-                return
-            if root and level == len(result_list):
-                result_list.append(root.val)
-            dfs(root.right, result_list, level + 1)
-            dfs(root.left, result_list, level + 1)
-            return result_list
-        return dfs(root, [], 0)
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        res = []
+        q = collections.deque([root])
+
+        while q:
+            rightSide = None
+            qLen = len(q)
+
+            for i in range(qLen):
+                node = q.popleft()
+                if node:
+                    rightSide = node
+                    q.append(node.left)
+                    q.append(node.right)
+            if rightSide:
+                res.append(rightSide.val)
+        return res

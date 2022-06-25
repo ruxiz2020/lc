@@ -1,25 +1,11 @@
-class Solution(object):
-    def isBalanced(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        O(n)
-        """
-        if root == None:
-            return True
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
 
-        self.getAllDepth(root)
+        def dfs(root):
+            if not root: return [True, 0]
 
-        left_depth = root.left.val if root.left else 0
-        right_depth = root.right.val if root.right else 0
-        if abs(left_depth - right_depth) <= 1:
-            return self.isBalanced(root.left) and self.isBalanced(root.right)
-        else:
-            return False
-
-    def getAllDepth(self, root):
-        if root == None:
-            return 0
-        root.val = 1 + max(self.getAllDepth(root.left),
-                           self.getAllDepth(root.right))
-        return root.val
+            left, right = dfs(root.left), dfs(root.right)
+            balanced = (left[0] and right[0] and
+                        abs(left[1] - right[1]) <= 1)
+            return [balanced, 1 + max(left[1], right[1])]
+        return dfs(root)[0]
