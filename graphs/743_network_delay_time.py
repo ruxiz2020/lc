@@ -2,7 +2,7 @@ import connectionsm heapq
 
 class Solution:
     '''Dijkstra's (BFS with min heap) - shortest path graph algo
-    O(E * log(V))'''
+    O(E * log(V ^ 2))'''
     def networkDelayTime(self, times, N, K):
         graph = collections.defaultdict(list)
         for u, v, w in times:
