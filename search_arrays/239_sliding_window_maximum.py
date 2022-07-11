@@ -2,6 +2,7 @@ import collections
 from typing import List
 
 class Solution:
+    '''monotonic decreasing order queue'''
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         indexQ = collections.deque()
         valQ = collections.deque()

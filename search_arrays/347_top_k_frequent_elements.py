@@ -3,6 +3,7 @@ import collections, heapq
 class Solution(object):
 
     def topKFrequent(self, nums, k):
+        '''klogn'''
         res=[]
         dict = collections.Counter(nums)
         for val, count in dict.items():
@@ -24,6 +25,26 @@ class Solution(object):
         """
         counter = Counter(nums).most_common()
         return [counter[i][0] for i in range(k)]
+
+class Solution:
+    '''bucket sort'''
+    # O(n)
+    #
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for n in nums:
+            count[n] = 1 + count.get(n, 0)
+        for n, c in count.items():
+            freq[c].append(n)
+
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
 
 
 if __name__ == '__main__':
