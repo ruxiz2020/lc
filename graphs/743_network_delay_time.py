@@ -4,7 +4,9 @@ import collections
 
 class Solution:
     '''Dijkstra's (BFS with min heap) - shortest path graph algo
-    O(E * log(V ^ 2))'''
+    O(E * log(V ^ 2))
+    every heap operation worse case: log V ** 2
+    '''
     def networkDelayTime(self, times, N, K):
         graph = collections.defaultdict(list)
         for u, v, w in times:
