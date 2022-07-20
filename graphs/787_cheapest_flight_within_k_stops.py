@@ -1,6 +1,7 @@
 class Solution:
   def findCheapestPrice(self, n, flights, src, dst, K):
     '''Bellman-Ford
+    BFS
     O(E * K)'''
     kInfCost = float('inf')
     cost = [kInfCost for _ in range(n)]

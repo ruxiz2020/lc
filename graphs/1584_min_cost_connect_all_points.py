@@ -5,7 +5,7 @@ class Solution(object):
         """
         :type points: List[List[int]]
         :rtype: int
-        Prim's algo - minimum spaning tree
+        Prim's algo - minimum spaning tree  BFS
         O(n ^2 * log(n)) , E: n^2, popping from min heap: log n
         """
         # standard definition of union find

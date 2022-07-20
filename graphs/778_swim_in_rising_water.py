@@ -1,5 +1,7 @@
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
+        '''Dijkstra / BFS
+         n**2 log(n)'''
         N = len(grid)
         visit = set()
         minH = [[grid[0][0], 0, 0]] # (time/max-height, r, c)
