@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    '''BFS'''
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         res = []
         q = collections.deque()

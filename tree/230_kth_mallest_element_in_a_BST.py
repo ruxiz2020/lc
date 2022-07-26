@@ -1,5 +1,18 @@
 import numpy as np
 
+
+
+def array_to_bst(array_nums):
+    if not array_nums:
+        return None
+    mid_num = len(array_nums) // 2
+    node = TreeNode(array_nums[mid_num])
+    node.left = array_to_bst(array_nums[:mid_num])
+    node.right = array_to_bst(array_nums[mid_num + 1:])
+    return node
+
+
+    
 # Definition for a binary tree node.
 
 
@@ -30,17 +43,6 @@ class Solution:
         return inorder(root)
 
 
-class Solution:
-    def kthSmallest(self, root, k):
-        def inorder(root):
-            if not root:
-                return []
-            in_left = inorder(root.left)
-            root_val = [root.val]
-            in_right = inorder(root.right)
-            return in_left + root_val + in_right
-
-        return inorder(root)[k - 1]
 
 
 class Solution:
@@ -63,14 +65,20 @@ arr = [3, 1, 4, np.nan, 2]
 k = 1
 
 
-def array_to_bst(array_nums):
-    if not array_nums:
-        return None
-    mid_num = len(array_nums) // 2
-    node = TreeNode(array_nums[mid_num])
-    node.left = array_to_bst(array_nums[:mid_num])
-    node.right = array_to_bst(array_nums[mid_num + 1:])
-    return node
+
+
+
+class Solution:
+    def kthSmallest(self, root, k):
+        def inorder(root):
+            if not root:
+                return []
+            in_left = inorder(root.left)
+            root_val = [root.val]
+            in_right = inorder(root.right)
+            return in_left + root_val + in_right
+
+        return inorder(root)[k - 1]
 
 
 if __name__ == '__main__':

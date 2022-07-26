@@ -13,6 +13,7 @@ class TrieNode:
 
 
 class Solution:
+    ''' '''
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         root = TrieNode()
         for w in words:

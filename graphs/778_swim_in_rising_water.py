@@ -19,4 +19,5 @@ class Solution:
                     (neiR, neiC) in visit):
                     continue
                 visit.add((neiR, neiC))
+                # minimize the max height alone the path
                 heapq.heappush(minH, [max(t, grid[neiR][neiC]), neiR, neiC])

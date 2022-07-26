@@ -7,7 +7,7 @@ class Solution:
         adj = { u:collections.deque() for u, v in tickets }
         res = ["JFK"]
 
-        tickets.sort()
+        tickets.sort() # sort
         for u, v in tickets:
             adj[u].append(v)
 
