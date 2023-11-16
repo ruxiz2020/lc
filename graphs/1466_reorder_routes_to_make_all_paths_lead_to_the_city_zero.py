@@ -2,24 +2,39 @@ from typing import List
 import collections
 
 class Solution:
+    """time: O(n)
+    sapce: O(n)"""
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
-        graph = collections.defaultdict(dict)
-        for con in connections:
-            graph[con[0]][con[1]] = 1
-            graph[con[1]][con[0]] = 0
+        """
+        start at city 0
+        recursively check its neighbors
+        count outgoing edges
+        """
 
-        print(graph)
-        visited = set()
-        return self.dfs(graph, 0, visited)
+        edges = {(a, b) for a, b in connections}
+        neighbors = {city: [] for city in range(n)}
+        visit = set()
+        changes = 0
 
-    def dfs(self, graph, cur, visited):
-        res = 0
-        visited.add(cur)
-        for nxt, value in graph[cur].items():
-            if nxt not in visited:
-                res += value
-                res += self.dfs(graph, nxt, visited)
-        return res
+        for a, b in connections:
+            neighbors[a].append(b)
+            neighbors[b].append(a)
+
+        def dfs(city):
+            nonlocal edges, neighbors, visit, changes
+
+            for neighbors in neighbors[city]:
+                if neighbors in visit:
+                    continue
+                """check if this neighbor can reach city 0"""
+                if (neighbors, city) not in edges:
+                    changes += 1
+                visit.add(neighbors)
+                dfs(neighbors)
+        visit.add(0)
+        dfs(0)
+        return changes
+
 
 
 if __name__ == '__main__':
