@@ -1,5 +1,6 @@
 class Solution(object):
     def numIslands(self, grid):
+        """BFS"""
         if not grid:
             return 0
         row = len(grid)

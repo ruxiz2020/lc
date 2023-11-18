@@ -5,8 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        low = 0;
-        high = len(nums) - 1;
+        low = 0
+        high = len(nums) - 1
 
         while (low <= high):
 

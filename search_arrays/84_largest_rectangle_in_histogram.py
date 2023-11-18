@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: int
         https://www.cnblogs.com/boring09/p/4231906.html
         单调递增stack
+        O(n)
         """
         stack = list()
         res = 0

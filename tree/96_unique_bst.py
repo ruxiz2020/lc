@@ -3,6 +3,12 @@ class Solution(object):
         """
         :type n: int
         :rtype: int
+        T: O(n ^ 2)
+        S: O(n ^ 2)
+        numTree[4] = numTree[0] * numTree[3] + (node 0 as the root)
+                     numTree[1] * numTree[2] + (node 1 as the root)
+                     numTree[2] * numTree[1] + (node 2 as the root)
+                     numTree[3] * numTree[0] (node 3 as the root)
         """
         dp = {0:1, 1:1, 2:2}
         if n < 3: return dp[n]
