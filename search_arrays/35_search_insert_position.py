@@ -1,3 +1,6 @@
+from bisect import bisect
+
+
 class Solution(object):
     def searchInsert(self, nums, target):
         """
