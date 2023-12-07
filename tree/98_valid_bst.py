@@ -9,6 +9,7 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: bool
+        DFS
         """
         return self.valid(root, float('-inf'), float('inf'))
 

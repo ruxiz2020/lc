@@ -3,6 +3,7 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+        O(n ** 2)
         """
         if not nums: return 0
         dp = [1] * len(nums)
