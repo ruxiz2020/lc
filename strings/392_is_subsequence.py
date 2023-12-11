@@ -1,3 +1,6 @@
+import collections
+
+
 class Solution(object):
     def isSubsequence(self, s, t):
         """
