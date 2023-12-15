@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution(object):
     def generateParenthesis(self, n):
         """
@@ -19,11 +22,44 @@ class Solution(object):
             self.dfs(res, left, right - 1, path + ')')
 
 
+class Solution02:
+    def generateParenthesis(self, n: int) -> List[str]:
+
+        self.res = []
+        def helper(o, c, s=''):
+            if o > c:
+                return
+            if o == 0 and c == 0:
+                self.res.append(s)
+                return
+            if o == 0:
+                helper(o, c - 1, s + ")")
+            else:
+                helper(o - 1, c, s + "(")
+                helper(o, c - 1, s + ")")
+
+
+        helper(n, n, '')
+        return list(set(self.res))
+
+
 if __name__ == '__main__':
 
     n = 3
 
-    ss = Solution()
+    ss = Solution02()
+    res = ss.generateParenthesis(n)
+
+    print(res)
+
+    n = 2
+    ss = Solution02()
+    res = ss.generateParenthesis(n)
+
+    print(res)
+
+    n = 4
+    ss = Solution02()
     res = ss.generateParenthesis(n)
 
     print(res)
