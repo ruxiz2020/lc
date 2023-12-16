@@ -13,8 +13,22 @@ class Solution:
                 l += 1
                 leftMax = max(leftMax, height[l])
                 res += leftMax - height[l]
+                print("left")
+                print(leftMax - height[l])
             else:
                 r -= 1
                 rightMax = max(rightMax, height[r])
                 res += rightMax - height[r]
+                print("right")
+                print(rightMax - height[r])
         return res
+
+
+if __name__ == '__main__':
+
+    height = [0,1,0,2,1,0,1,3,2,1,2,1]
+
+    ss = Solution()
+    res = ss.trap(height)
+
+    print(res)
