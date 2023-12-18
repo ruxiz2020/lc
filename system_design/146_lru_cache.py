@@ -9,6 +9,7 @@ class LRUCache:
         self.cap = capacity
         self.cache = {} # map key to node
 
+        '''left=LRU, right=most recent '''
         self.left, self.right = Node(0, 0), Node(0, 0)
         self.left.next, self.right.prev = self.right, self.left
 
