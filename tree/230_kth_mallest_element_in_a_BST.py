@@ -50,7 +50,7 @@ class Solution:
         stack = []
         curr = root
 
-        while stack or curr:
+        while stack and curr:
             while curr:
                 stack.append(curr)
                 curr = curr.left # go to the left most node
