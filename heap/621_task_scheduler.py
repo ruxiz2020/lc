@@ -4,6 +4,7 @@ import heapq
 from collections import Counter, deque
 
 class Solution:
+    '''O(m * n)'''
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = Counter(tasks)
         maxHeap = [-cnt for cnt in count.values()]

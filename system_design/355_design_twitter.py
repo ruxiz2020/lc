@@ -1,3 +1,6 @@
+import heapq
+
+
 class User(object):
     """
     User structure
@@ -55,6 +58,7 @@ class Twitter(object):
             return res
         mainUser = self.userMap[userId]
         for t in mainUser.tweets:
+            heapq.heappush(que, t)
             heapq.heappush(que, t)
         for u in mainUser.following:
             for t in u.tweets:
