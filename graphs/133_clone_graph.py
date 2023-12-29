@@ -8,6 +8,7 @@ class Node(object):
 
 
 class Solution:
+    '''O(n)'''
     def cloneGraph(self, node: Node) -> Node:
         oldToNew = {}
 

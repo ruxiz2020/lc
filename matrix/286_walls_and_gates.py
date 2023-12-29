@@ -5,6 +5,8 @@ class Solution:
     """
     @param rooms: m x n 2D grid
     @return: nothing
+    BFS
+    O(m * n)
     """
     def walls_and_gates(self, rooms: List[List[int]]):
         ROWS, COLS = len(rooms), len(rooms[0])
@@ -17,6 +19,12 @@ class Solution:
                 return
             visit.add((r, c))
             q.append([r, c])
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                if rooms[r][c] == 0:
+                    q.append([r, c])
+                    visit.add((r, c))
 
         dist = 0
         while q:

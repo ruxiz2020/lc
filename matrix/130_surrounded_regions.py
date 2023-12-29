@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         ROWS, COLS = len(board), len(board[0])

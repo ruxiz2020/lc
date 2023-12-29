@@ -1,4 +1,4 @@
-kclass Solution(object):
+class Solution(object):
     def letterCombinations(self, digits):
         """
         :type digits: str
