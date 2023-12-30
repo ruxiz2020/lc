@@ -48,3 +48,29 @@ class Solution(object):
                             max_len = end - start + 1
                             longest = s[start: end + 1]
         return longest
+
+
+class Solution(object):
+    def longestPalindrome(self, s):
+        res = ""
+        resLen = 0
+
+        for i in range(len(s)):
+            # odd number
+            l, r = i, i
+            while l >= 0 and r < len(s) and s[1] == s[r]:
+                if (r - l + 1) > resLen:
+                    res = s[l:r + 1]
+                    resLen = r - l + 1
+                l -= 1
+                r += 1
+
+            # even number
+            l, r = i, i + 1
+            while l >= 0 and r < len(s) and s[1] == s[r]:
+                if (r - l + 1) > resLen:
+                    res = s[l:r + 1]
+                    resLen = r - l + 1
+                l -= 1
+                r += 1
+        return res
