@@ -17,6 +17,8 @@ class Solution:
             return res
         return dfs(0)
 
+class Solution:
+    def numDecodings(self, s: str) -> int:
         # Dynamic Programming
         dp = { len(s) : 1 }
         for i in range(len(s) - 1, -1, -1):

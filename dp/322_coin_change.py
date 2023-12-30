@@ -23,7 +23,9 @@ class Solution(object):
 
 
 class Solution:
-    '''bottom up'''
+    '''bottom up
+    O(amount * len(coins))
+    O(amount)'''
     def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [amount + 1] * (amount + 1)
         dp[0] = 0
