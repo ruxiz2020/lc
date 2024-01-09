@@ -17,3 +17,26 @@ class Solution:
             res[i] *= postfix
             postfix *= nums[i]
         return res
+
+
+class Solution02:
+    '''
+    O(n)
+    O(1)
+    '''
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prefix = [a * b for a, b in zip(nums, [1] + nums[1:])]
+        print(prefix)
+        postfix = [a * b for a, b in zip(nums, nums[: -1] + [1])]
+        print(postfix)
+
+        return [a * b for a, b in zip(prefix, postfix)]
+
+if __name__ == '__main__':
+
+    nums = [1,2,3,4]
+
+    ss = Solution02()
+    res = ss.productExceptSelf(nums)
+
+    print(res)

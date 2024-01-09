@@ -29,3 +29,15 @@ class Solution:
             else:
                 countL = 0
         return True
+
+
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        # Check for less than two Absents
+        less_than_two_absents = s.count('A') < 2
+
+        # Check for not having three continuous Lates
+        no_three_continuous_lates = 'LLL' not in s
+
+        # Return True if both conditions are met, otherwise False
+        return less_than_two_absents and no_three_continuous_lates

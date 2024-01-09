@@ -1,6 +1,7 @@
 class Solution(object):
     def alienOrder(self, words):
-        '''topological sort'''
+        '''topological sort
+        or post order DFS'''
         adj = { c: set() for w in words for c in w }
 
         for i in range(len(words) - 1):

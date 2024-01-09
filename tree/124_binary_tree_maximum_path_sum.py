@@ -20,6 +20,7 @@ class Solution:
 
             # compute max path sum WITH split
             res[0] = max(res[0], root.val + leftMax + rightMax)
+            # without split
             return root.val + max(leftMax, rightMax)
 
         dfs(root)
