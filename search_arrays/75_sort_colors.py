@@ -1,11 +1,16 @@
+from collections import Counter
+
+
 class Solution(object):
     def sortColors(self, nums):
         """
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
+        bucket sort
+        O(n)
         """
         count = Counter(nums)
-        for i in xrange(len(nums)):
+        for i in range(len(nums)):
             if i < count[0]:
                 nums[i] = 0
             elif i < count[0] + count[1]:

@@ -23,13 +23,13 @@ class Solution(object):
 
 
 # same as above, but more graceful
-class Solution(object):
-    def isSubtree(self, s, t):
-        if s == None:
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if root == None:
             return False
-        if self.isSame(s, t):
+        if self.isSame(root, subRoot):
             return True
-        return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 
 
     def isSame(self, s, t):

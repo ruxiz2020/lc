@@ -11,3 +11,12 @@ class Solution:
       seen.add(local + '@' + domain)
 
     return len(seen)
+
+
+if __name__ == '__main__':
+
+    emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+
+    ss = Solution()
+    res = ss.numUniqueEmails(emails)
+    print(res)
