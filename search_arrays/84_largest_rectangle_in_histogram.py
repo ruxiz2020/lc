@@ -45,6 +45,7 @@ class Solution02(object):
                 maxArea = max(maxArea, height * (i - index))
             stack.append((start, h))
 
+        # still some entries in stack
         for i, h in stack:
             maxArea = max(maxArea, h * (len(heights) - i))
         return maxArea
