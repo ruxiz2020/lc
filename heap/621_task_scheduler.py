@@ -29,7 +29,7 @@ class Solution:
 
 if __name__ == '__main__':
 
-    tasks = ["A","A","A","B","B","B"]
+    tasks = ["A","A","A","B","B","B", "C"]
     n = 2
 
     ss = Solution()
