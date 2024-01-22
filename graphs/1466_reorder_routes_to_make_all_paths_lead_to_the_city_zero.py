@@ -23,14 +23,14 @@ class Solution:
         def dfs(city):
             nonlocal edges, neighbors, visit, changes
 
-            for neighbors in neighbors[city]:
-                if neighbors in visit:
+            for neighbor in neighbors[city]:
+                if neighbor in visit:
                     continue
                 """check if this neighbor can reach city 0"""
-                if (neighbors, city) not in edges:
+                if (neighbor, city) not in edges:
                     changes += 1
-                visit.add(neighbors)
-                dfs(neighbors)
+                visit.add(neighbor)
+                dfs(neighbor)
         visit.add(0)
         dfs(0)
         return changes
