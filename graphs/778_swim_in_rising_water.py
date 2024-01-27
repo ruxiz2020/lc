@@ -1,3 +1,7 @@
+import heapq
+from typing import List
+
+
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         '''Dijkstra / BFS
