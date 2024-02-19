@@ -20,6 +20,7 @@ class Solution:
             visit.add((r, c))
             q.append([r, c])
 
+        # add gates to q and visit
         for r in range(ROWS):
             for c in range(COLS):
                 if rooms[r][c] == 0:

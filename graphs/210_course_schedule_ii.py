@@ -8,6 +8,10 @@ class Solution:
         for crs, pre in prerequisites:
             prereq[crs].append(pre)
 
+        # a course has 3 possible states:
+        # visited -> crs has been added to output
+        # visiting -> crs not added to output, but added to cycle
+        # unvisited -> crs not added to output or cycle
         output = []
         visit, cycle = set(), set()
         def dfs(crs):
