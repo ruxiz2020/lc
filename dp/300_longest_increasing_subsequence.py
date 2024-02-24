@@ -3,7 +3,7 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
-        O(n ** 2)
+        O(n ** 2) {brute force 2**n}
         """
         if not nums: return 0
         dp = [1] * len(nums)
