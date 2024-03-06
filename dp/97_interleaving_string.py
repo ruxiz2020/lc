@@ -29,6 +29,35 @@ class Solution(object):
         print(dp)
         return dp[len_s1][len_s2]
 
+
+
+
+class Solution(object):
+    def isInterleave(self, s1, s2, s3):
+        """
+        :type s1: str
+        :type s2: str
+        :type s3: str
+        :rtype: bool
+        O（m n)
+        """
+        len_s1 = len(s1)
+        len_s2 = len(s2)
+        len_s3 = len(s3)
+        if len_s1 + len_s2 != len_s3:
+            return False
+        dp = [[False for i in range(len_s2 + 1)] for j in range(len_s1 + 1)]
+        dp[len_s1][len_s2] = True
+
+        for i in range(len_s1, -1, -1):
+            for j in range(len_s2, -1, -1):
+
+                if i < len_s1 and s1[i] == s3[i + j] and dp[i + 1][j]:
+                    dp[i][j] = True
+                if i < len_s2 and s2[j] == s3[i + j] and dp[i][j + 1]:
+                    dp[i][j] = True
+        return dp[0][0]
+
 if __name__ == '__main__':
 
     s1 = "aabcc"
