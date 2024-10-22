@@ -18,6 +18,7 @@ class Solution(object):
             return min(A[0], B[0])
         pa = min(k // 2, lenA)
         pb = k - pa
+        # iterate from the smaller number of the 2 selections
         if A[pa - 1] <= B[pb - 1]:
             return self.getKth(A[pa:], B, pb)
         else:

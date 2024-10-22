@@ -15,7 +15,9 @@ class Solution:
         postfix = 1
         for i in range(len(nums) - 1, -1, -1):
             res[i] *= postfix
+
             postfix *= nums[i]
+            print(postfix)
         return res
 
 
@@ -36,7 +38,7 @@ if __name__ == '__main__':
 
     nums = [1,2,3,4]
 
-    ss = Solution02()
+    ss = Solution()
     res = ss.productExceptSelf(nums)
 
     print(res)

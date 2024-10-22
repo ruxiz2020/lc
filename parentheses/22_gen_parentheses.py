@@ -21,6 +21,32 @@ class Solution(object):
         if left < right:
             self.dfs(res, left, right - 1, path + ')')
 
+class Solution01:
+    def generateParenthesis(self, n: int) -> List[str]:
+        stack = []
+        res = []
+
+        def backtrack(openN, closedN):
+            if openN == closedN == n:
+                res.append("".join(stack))
+                return
+
+            if openN < n:
+                stack.append("(")
+                backtrack(openN + 1, closedN)
+
+                stack.pop()
+                print(stack)
+            if closedN < openN:
+                stack.append(")")
+                backtrack(openN, closedN + 1)
+
+                stack.pop()
+                print(stack)
+
+        backtrack(0, 0)
+        return res
+
 
 class Solution02:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -47,19 +73,19 @@ if __name__ == '__main__':
 
     n = 3
 
-    ss = Solution02()
+    ss = Solution01()
     res = ss.generateParenthesis(n)
 
     print(res)
 
-    n = 2
-    ss = Solution02()
-    res = ss.generateParenthesis(n)
-
-    print(res)
-
-    n = 4
-    ss = Solution02()
-    res = ss.generateParenthesis(n)
-
-    print(res)
+    # n = 2
+    # ss = Solution02()
+    # res = ss.generateParenthesis(n)
+    #
+    # print(res)
+    #
+    # n = 4
+    # ss = Solution02()
+    # res = ss.generateParenthesis(n)
+    #
+    # print(res)
