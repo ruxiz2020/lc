@@ -16,7 +16,7 @@ class Solution(object):
         return nums[0]
 
 
-class Solution(object):
+class Solution2(object):
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
@@ -28,7 +28,9 @@ class Solution(object):
         def quickSelect(l, r):
             pivot, p = nums[r], l
             for i in range(l, r):
+                print(f"i: {i}")
                 if nums[i] <= pivot:
+                    print(f"p: {p}")
                     nums[p], nums[i] = nums[i], nums[p]
                     p += 1
             nums[p], nums[r] = nums[r], nums[p]
@@ -40,7 +42,7 @@ class Solution(object):
         return quickSelect(0, len(nums) - 1)
 
 
-class Solution(object):
+class Solution3(object):
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
@@ -52,11 +54,12 @@ class Solution(object):
         """
         def partition(arr, l, r):
 
-            x = arr[r]
+            pivot = arr[r]
             i = l
             for j in range(l, r):
-
-                if arr[j] <= x:
+                print(f"j:{j}")
+                if arr[j] <= pivot:
+                    print(f"i:{i}")
                     arr[i], arr[j] = arr[j], arr[i]
                     i += 1
 
@@ -94,3 +97,9 @@ class Solution(object):
         res = kthSmallest(nums, low, high, k)
 
         return res
+
+nums = [3,2,1,5,6,4]
+k = 2
+ss = Solution2()
+res = ss.findKthLargest(nums, k)
+print(res)
