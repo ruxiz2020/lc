@@ -100,6 +100,6 @@ class Solution3(object):
 
 nums = [3,2,1,5,6,4]
 k = 2
-ss = Solution2()
+ss = Solution()
 res = ss.findKthLargest(nums, k)
 print(res)
