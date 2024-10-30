@@ -3,25 +3,23 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution(object):
-    def partition(self, head, x):
-        """
-        :type head: ListNode
-        :type x: int
-        :rtype: ListNode
-        """
-        small = ListNode(0)
-        large = ListNode(0)
-        small_root, large_root = small, large
-        while head:
-            if head.val < x:
-                small.next = head
-                small = small.next
-            else:
-                large.next = head
-                large = large.next
-            temp = head.next
-            head.next = None
-            head = temp
-        small.next  = large_root.next
-        return small_root.next
+class Solution:
+  def partition(self, head: ListNode, x: int) -> ListNode:
+    beforeHead = ListNode(0)
+    afterHead = ListNode(0)
+    before = beforeHead
+    after = afterHead
+
+    while head:
+      if head.val < x:
+        before.next = head
+        before = head
+      else:
+        after.next = head
+        after = head
+      head = head.next
+
+    after.next = None
+    before.next = afterHead.next
+
+    return beforeHead.next

@@ -23,6 +23,7 @@ class Solution(object):
 
             #move left pointer
             while(l <= r and have == need):
+                print(l, r, res)
                 Len = r + 1 - l
                 if Len < resLen:
                     res = s[l:r+1]
