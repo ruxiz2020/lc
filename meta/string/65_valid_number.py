@@ -33,3 +33,15 @@ class Solution(object):
             for j in s:
                 if not j.isdigit(): return False
             return True
+
+
+"""
+For example, all the following are valid numbers: "2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789", while the following are not valid numbers: "abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53".
+
+"""
+
+num = "0"
+
+ss = Solution()
+res = ss.isNumber(num)
+print(res)

@@ -1,3 +1,7 @@
+import math
+from typing import List
+
+
 class Solution:
     def minEatingSpeed(self, piles: List[int], H: int) -> int:
         l, r = 1, max(piles)
@@ -8,7 +12,7 @@ class Solution:
 
             totalTime = 0
             for p in piles:
-                totalTime += ((p-1)//m) + 1
+                totalTime += math.ceil(float(p) / k)
             if totalTime <= H:
                 k = m
                 r = m - 1

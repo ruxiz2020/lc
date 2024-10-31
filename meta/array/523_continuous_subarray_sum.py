@@ -14,8 +14,8 @@ class Solution(object):
         :type k: int
         :rtype: bool
         """
-        dp = [set() for _ in xrange(len(nums))]
-        for i in xrange(1, len(nums)):
+        dp = [set() for _ in range(len(nums))]
+        for i in range(1, len(nums)):
             dp[i-1].add(nums[i-1])
             for num in dp[i-1]:
                 curr_sum = nums[i] + num
