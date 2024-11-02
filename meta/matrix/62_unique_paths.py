@@ -5,6 +5,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         O(log(m+n))
+        factorial(m + n -2)//(factorial(m - 1) * factorial(n - 1))
         """
         total = m + n - 2
         v = n - 1

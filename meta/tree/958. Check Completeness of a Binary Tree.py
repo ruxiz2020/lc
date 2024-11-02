@@ -23,7 +23,7 @@ class Solution(object):
                     queue.append(node.left)
                     queue.append(node.right)
                 else:
-                    flag = True
+                    flag = True # not complete row found
                     if node.left:
                         queue.append(node.left)
                     elif node.right:

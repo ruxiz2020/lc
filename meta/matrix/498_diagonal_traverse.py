@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class Solution(object):
     def findDiagonalOrder(self, matrix):
         """
