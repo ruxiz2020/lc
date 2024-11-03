@@ -3,6 +3,7 @@ class Solution:
         """
         :type nums: List[int]
         :rtype: int
+        O (n)
         """
         print(nums)
         total_sum = 0

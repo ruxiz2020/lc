@@ -12,5 +12,13 @@ class Solution:
             prefix += num
             ans += count[prefix - k]
             count[prefix] += 1
+            print(count)
 
         return ans
+
+
+nums = [1,2,3]; k = 3
+ss = Solution()
+res = ss.subarraySum(nums, k)
+
+print(res)
