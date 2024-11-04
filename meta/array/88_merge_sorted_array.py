@@ -15,3 +15,10 @@ class Solution(object):
                 nums1[m + n - 1] = nums2[n - 1]
                 n -= 1
         nums1[:n] = nums2[:n]
+
+
+nums1 = [1,2,3,0,0,0]; m = 3; nums2 = [2,5,6]; n = 3
+
+ss = Solution()
+res = ss.merge(nums1, m, nums2, n)
+print(nums1)

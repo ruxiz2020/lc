@@ -34,13 +34,15 @@ Note: we did not take into account the space needed to hold the final results of
         return res
 
     def dfs(self, nums, target, index, res, path):
+
+        print(target)
         if target < 0:
             return
         elif target == 0:
             res.append(path)
             return
         for i in range(index, len(nums)):
-            print(index, i)
+
             if i > index and nums[i] == nums[i-1]:
                 print("continue")
                 continue
@@ -49,6 +51,7 @@ Note: we did not take into account the space needed to hold the final results of
 
 
 candidates = [10,1,2,7,6,1,5]; target = 8
+candidates = [1, 1, 6]; target = 8
 
 ss = Solution()
 
