@@ -1,6 +1,6 @@
 import collections, heapq
 
-from rpds import List
+from typing import List
 
 
 class Solution01(object):

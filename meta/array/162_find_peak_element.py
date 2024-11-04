@@ -13,3 +13,9 @@ class Solution(object):
             else:
                 right = mid1
         return left
+
+
+nums = [1,2,3,1]
+ss = Solution()
+res = ss.findPeakElement(nums)
+print(res)
