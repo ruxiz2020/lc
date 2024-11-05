@@ -24,7 +24,7 @@ class Solution:
         stk = []
         nums = list(str(num))
         n = len(nums)
-        for i in range(n-1, -1, -1):
+        for i in range(n-1, -1, -1): # find the largest num from the right
             if stk and stk[-1][1] >= nums[i]:  # only keep the rightmost duplicate
                 continue
             stk.append((i, nums[i]))

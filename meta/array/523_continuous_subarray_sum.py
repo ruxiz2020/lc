@@ -19,8 +19,10 @@ class Solution(object):
             dp[i-1].add(nums[i-1])
             print(dp)
             for num in dp[i-1]:
+
                 curr_sum = nums[i] + num
                 if curr_sum == k or (k!= 0 and curr_sum % k == 0):
+                    print(curr_sum)
                     return True
                 dp[i].add(curr_sum)
                 print(dp)
@@ -31,27 +33,3 @@ ss = Solution()
 nums = [23,2,6,4,7]; k = 6
 res = ss.checkSubarraySum(nums, k)
 print(res)
-
-
-# presum + hashtable, O(n)
-# referer: https://discuss.leetcode.com/topic/80793/java-o-n-time-o-k-space
-class Solution(object):
-    def checkSubarraySum(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
-        mapping = {0:-1} # deal with the case which there is only two elements
-        count = 0
-        for i in range(len(nums)):
-            count += nums[i]
-            if k != 0: count %= k
-            if count in mapping:
-                if i - mapping[count] > 1:
-                    return True
-            else:
-                mapping[count] = i
-        return False
-
-
