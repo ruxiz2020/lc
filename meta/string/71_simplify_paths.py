@@ -32,3 +32,8 @@ class Solution(object):
         for i in stack:
             res += "/"+i
         return res
+
+
+path = "/home//foo/"
+res = Solution().simplifyPath(path)
+print(res)

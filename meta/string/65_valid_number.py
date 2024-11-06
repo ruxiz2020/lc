@@ -40,7 +40,7 @@ For example, all the following are valid numbers: "2", "0089", "-0.1", "+3.14", 
 
 """
 
-num = "0"
+num = "-90E3"
 
 ss = Solution()
 res = ss.isNumber(num)

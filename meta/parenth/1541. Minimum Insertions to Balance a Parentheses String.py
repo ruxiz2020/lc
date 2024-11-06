@@ -29,3 +29,8 @@ class Solution:
         insertions_needed += balance * 2
 
         return insertions_needed  # Return the total number of insertions needed
+
+
+s = "(()))"
+res = Solution().min_insertions(s)
+print(res)
