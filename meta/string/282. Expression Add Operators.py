@@ -3,6 +3,7 @@ class Solution:
         ans = []
 
         def dfs(start: int, prev: int, eval: int, path: list[str]) -> None:
+            print(start, prev, eval, path)
             if start == len(num):
                 if eval == target:
                     ans.append(''.join(path))
@@ -10,6 +11,7 @@ class Solution:
 
             for i in range(start, len(num)):
                 if i > start and num[start] == '0':
+                    print(i)
                     return
                 s = num[start:i + 1]
                 curr = int(s)
@@ -30,3 +32,8 @@ class Solution:
 
         dfs(0, 0, 0, [])
         return ans
+
+
+num = "2320"; target = 8
+res = Solution().addOperators(num, target)
+print(res)
