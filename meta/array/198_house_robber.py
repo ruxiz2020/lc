@@ -15,3 +15,4 @@ if __name__ == '__main__':
     res = ss.rob(nums)
 
     print(res)
+    # 12

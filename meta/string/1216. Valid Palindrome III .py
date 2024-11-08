@@ -17,13 +17,21 @@ class Solution:
                 print(i, j)
                 if s[i] == s[j]:
                     dp[i][j] = 2 + dp[i + 1][j - 1]
+                    # print(i + 1, j - 1)
+                    print("same", (i + 1, j - 1), (i, j))
+                    for row in dp:
+                        print(row)
                 else:
                     dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
-
+                    print("diff")
+                    for row in dp:
+                        print(row)
+        print(dp[0][n - 1])
         return dp[0][n - 1]
 
 
 s = "abcdeca"; k = 2
+s = "abbababa"; k = 1
 
 """
 0 (1) 2 3 4 5

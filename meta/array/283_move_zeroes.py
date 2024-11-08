@@ -11,3 +11,8 @@ class Solution:
 
         for i in range(j, len(nums)):
             nums[i] = 0
+
+nums = [0,1,0,3,12]
+ss = Solution().moveZeroes(nums)
+print(nums)
+# [1, 3, 12, 0, 0]

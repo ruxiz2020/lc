@@ -4,8 +4,7 @@ class Solution:
             self,
             nums: list[int],
             lower: int,
-            upper: int,
-    ) -> list[list[int]]:
+            upper: int) -> list[list[int]]:
         def getRange(lo: int, hi: int) -> list[int]:
             if lo == hi:
                 return [lo, lo]
@@ -36,3 +35,4 @@ nums = [0,1,3,50,75]; lower = 0; upper = 99
 ss = Solution()
 res = ss.findMissingRanges(nums, lower, upper)
 print(res)
+# [[2, 2], [4, 49], [51, 74], [76, 99]]
