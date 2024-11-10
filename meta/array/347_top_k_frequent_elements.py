@@ -62,3 +62,4 @@ if __name__ == '__main__':
     res = ss.topKFrequent(nums, k)
 
     print(res)
+    # [1, 2]

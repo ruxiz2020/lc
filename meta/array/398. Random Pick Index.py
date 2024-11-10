@@ -22,3 +22,8 @@ ss = Solution(nums)
 
 res = ss.pick(3)
 print(res)
+"""Input
+["Solution", "pick", "pick", "pick"]
+[[[1, 2, 3, 3, 3]], [3], [1], [3]]
+Output
+[null, 4, 0, 2]"""
