@@ -29,4 +29,4 @@ ss = Solution()
 
 res = ss.exclusiveTime(n, logs)
 
-print(res)
+print(res) # [3, 4]

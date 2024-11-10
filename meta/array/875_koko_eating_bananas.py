@@ -3,19 +3,20 @@ from typing import List
 
 
 class Solution:
-    def minEatingSpeed(self, piles: List[int], H: int) -> int:
-        l, r = 1, max(piles)
-        k = 0
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        def can_eat_all(k):
+            return sum(math.ceil(pile / k) for pile in piles) <= h
 
-        while l <= r:
-            m = (l + r) // 2
-
-            totalTime = 0
-            for p in piles:
-                totalTime += math.ceil(float(p) / k)
-            if totalTime <= H:
-                k = m
-                r = m - 1
+        low, high = 1, max(piles)
+        while low < high:
+            mid = (low + high) // 2
+            if can_eat_all(mid):
+                high = mid
             else:
-                l = m + 1
-        return k
+                low = mid + 1
+        return low
+
+piles = [3, 6, 7, 11];
+h = 8
+res = Solution().minEatingSpeed(piles, h)
+print(res)
