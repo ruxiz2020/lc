@@ -29,42 +29,40 @@ class Solution(object):
                     findIsland(x, y)
         return count
 
-class Solution(object):
-    def numIslands(self, grid):
-        """BFS"""
-        if not grid:
-            return 0
-        row = len(grid)
-        col = len(grid[0])
-        visit = set()
-        island = 0
-        directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+
+class Solution:
+    def numIslands(self, grid: list[list[str]]) -> int:
+        dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        m = len(grid)
+        n = len(grid[0])
 
         def bfs(r, c):
-            q = collections.deque()
-            visit.add((r, c))
-            q.append((r, c))
+            q = collections.deque([(r, c)])
+            grid[r][c] = '2'  # Mark '2' as visited.
             while q:
-                row, col = q.popleft()
-                #row, col = q.pop() # dfs
-                for dr, dc in directions:
-                    r, c = row + dr, col + dc
-                    if 0 <= r < row and 0 <= c < col and \
-                        grid[r][c] == '1' and \
-                        (r, c) not in visit:
-                        q.append((r, c))
-                        visit.add((r, c))
+                i, j = q.popleft()
+                for dx, dy in dirs:
+                    x = i + dx
+                    y = j + dy
+                    if x < 0 or x == m or y < 0 or y == n:
+                        continue
+                    if grid[x][y] != '1':
+                        continue
+                    q.append((x, y))
+                    grid[x][y] = '2'  # Mark '2' as visited.
 
-        for x in range(row):
-            for y in range(col):
-                if grid[x][y] == '1' and (x, y) not in visit:
-                    bfs(x, y)
-                    island += 1
-        return island
+        ans = 0
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    bfs(i, j)
+                    ans += 1
+
+        return ans
 
 
 if __name__ == '__main__':
-
     grid = [
         ["1", "1", "1", "1", "0"],
         ["1", "1", "0", "1", "0"],

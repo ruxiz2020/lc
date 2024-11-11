@@ -17,10 +17,10 @@ class Solution:
                 if grid[i][j] == 1:
                     total += 1
                     que.append((i, j))
-                    d = 0
+                    di = 0
                     vis = set() # reset for every free-land
                     while que:
-                        d += 1
+                        di += 1
                         for _ in range(len(que)):
                             r, c = que.popleft()
                             for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
@@ -32,7 +32,7 @@ class Solution:
                                     and (x, y) not in vis
                                 ):
                                     cnt[x][y] += 1
-                                    dist[x][y] += d
+                                    dist[x][y] += di
                                     que.append((x, y))
                                     vis.add((x, y))
         ans = inf
@@ -47,4 +47,4 @@ grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
 ss = Solution()
 
 res = ss.shortestDistance(grid)
-print(res)
+print(res) # 7

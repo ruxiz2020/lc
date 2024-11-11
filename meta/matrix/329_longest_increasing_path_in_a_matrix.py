@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         ROWS, COLS = len(matrix), len(matrix[0])

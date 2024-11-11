@@ -16,10 +16,14 @@ class Solution:
         prev, curr = head, head.next
         while curr != head:
             if prev.val <= insertVal <= curr.val or (
-                prev.val > curr.val and (insertVal >= prev.val or insertVal <= curr.val)
+                prev.val > curr.val and \
+                (insertVal >= prev.val or insertVal <= curr.val)
             ):
                 break
             prev, curr = curr, curr.next
         prev.next = node
         node.next = curr
         return head
+
+head = [3,4,1]; insertVal = 2 # res [3,4,1,2]
+

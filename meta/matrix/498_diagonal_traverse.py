@@ -1,4 +1,5 @@
 from collections import defaultdict
+from typing import List
 
 
 class Solution(object):
@@ -74,9 +75,14 @@ class Solution:
         for i in range(rows):
             for j in range(cols):
                 lines[i+j].append(matrix[i][j])
+        print(lines)
         for k in range(rows + cols - 1):
             if k % 2 == 0:
                 res += lines[k][::-1]
             else:
                 res += lines[k]
         return res
+
+mat = [[1,2,3],[4,5,6],[7,8,9]]
+res = Solution().findDiagonalOrder(mat)
+print(res)
