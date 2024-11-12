@@ -37,3 +37,6 @@ class Solution:
                     res = max(res, 1 + sum(area[t] for t in tmp))
         return res
 
+grid = [[1,0],[0,1]]
+res = Solution().largestIsland(grid)
+print(res)

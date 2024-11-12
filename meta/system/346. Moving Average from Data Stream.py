@@ -13,3 +13,10 @@ class MovingAverage:
         self.sum += val
         self.q.append(val)
         return self.sum / len(self.q)
+
+ma = MovingAverage(3)
+
+res = ma.next(1)
+print(res)
+res = ma.next(10)
+print(res)

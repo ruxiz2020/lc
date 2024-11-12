@@ -35,6 +35,8 @@ class Solution:
                                     dist[x][y] += di
                                     que.append((x, y))
                                     vis.add((x, y))
+        print(dist)
+        print(cnt)
         ans = inf
         for i in range(m):
             for j in range(n):
@@ -43,8 +45,10 @@ class Solution:
         return -1 if ans == inf else ans
 
 
-grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+grid = [[1,0,2,0,1],
+        [0,0,0,0,0],
+        [0,0,1,0,0]]
 ss = Solution()
 
 res = ss.shortestDistance(grid)
-print(res) # 7
+print(res) # 7, (1,2)

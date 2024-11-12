@@ -74,7 +74,7 @@ class Solution:
         cols = len(matrix[0])
         for i in range(rows):
             for j in range(cols):
-                lines[i+j].append(matrix[i][j])
+                lines[i + j].append(matrix[i][j])
         print(lines)
         for k in range(rows + cols - 1):
             if k % 2 == 0:
@@ -83,6 +83,9 @@ class Solution:
                 res += lines[k]
         return res
 
-mat = [[1,2,3],[4,5,6],[7,8,9]]
+
+mat = [[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]]
 res = Solution().findDiagonalOrder(mat)
-print(res)
+print(res) # [1, 2, 4, 7, 5, 3, 6, 8, 9]
