@@ -11,7 +11,8 @@ class Solution:
 
             for i in range(start, len(num)):
                 if i > start and num[start] == '0':
-                    print(i)
+
+                    print(f"i {i}")
                     return
                 s = num[start:i + 1]
                 curr = int(s)
@@ -34,6 +35,7 @@ class Solution:
         return ans
 
 
-num = "2320"; target = 8
+num = "2032";
+target = 8
 res = Solution().addOperators(num, target)
-print(res)
+print(res)  # ['2+3*2+0', '2+3*2-0', '2*3+2+0', '2*3+2-0']
