@@ -21,4 +21,4 @@ class Solution:
 
 s = "lee(t(c)o)de)"
 res = Solution().minRemoveToMakeValid(s)
-print(res)
+print(res) # lee(t(c)o)de

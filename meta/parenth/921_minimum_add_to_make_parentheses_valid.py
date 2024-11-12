@@ -24,4 +24,4 @@ s = "((("
 
 ss = Solution()
 res = ss.minAddToMakeValid(s)
-print(res)
+print(res) # 3

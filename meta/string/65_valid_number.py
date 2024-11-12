@@ -16,8 +16,8 @@ class Solution(object):
         except:
             eindex = -1
         if eindex != -1:
-            if eindex == len(s)-1: return False
-            epart = s[eindex+1:]
+            if eindex == len(s) - 1: return False
+            epart = s[eindex + 1:]
             s = s[:eindex]
             if epart[0] == '+' or epart[0] == '-':
                 epart = epart[1:]
@@ -25,7 +25,7 @@ class Solution(object):
             for i in epart:
                 if not i.isdigit(): return False
         if s == '.' or not s: return False
-        s = s[:pointindex] + s[pointindex+1:]
+        s = s[:pointindex] + s[pointindex + 1:]
         try:
             s.index('.')
             return False

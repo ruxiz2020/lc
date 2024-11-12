@@ -18,10 +18,10 @@ class Solution(object):
         i = 0
         res = ''
         while i < len(path):
-            end = i+1
+            end = i + 1
             while end < len(path) and path[end] != "/":
                 end += 1
-            sub=path[i+1:end]
+            sub = path[i + 1:end]
             if len(sub) > 0:
                 if sub == "..":
                     if stack != []: stack.pop()
@@ -30,7 +30,7 @@ class Solution(object):
             i = end
         if stack == []: return "/"
         for i in stack:
-            res += "/"+i
+            res += "/" + i
         return res
 
 
