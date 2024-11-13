@@ -21,4 +21,4 @@ nums = [1,2,3]; k = 3
 ss = Solution()
 res = ss.subarraySum(nums, k)
 
-print(res)
+print(res) # 2
