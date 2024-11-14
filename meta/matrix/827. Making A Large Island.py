@@ -34,9 +34,11 @@ class Solution:
                         tx, ty = i + dx, j + dy
                         if 0 <= tx < n and 0 <= ty < n and grid[tx][ty] > 1:
                             tmp.add(grid[tx][ty])
+                    print(tmp)
+                    print(area)
                     res = max(res, 1 + sum(area[t] for t in tmp))
         return res
 
 grid = [[1,0],[0,1]]
 res = Solution().largestIsland(grid)
-print(res)
+print(res) # 3

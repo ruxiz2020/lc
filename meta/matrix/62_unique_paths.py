@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution01(object):
     def uniquePaths(self, m, n):
         """
         :type m: int
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     m = 3
     n = 7
 
-    ss = Solution()
+    ss = Solution01()
     res = ss.uniquePaths(m, n)
 
     print(res)

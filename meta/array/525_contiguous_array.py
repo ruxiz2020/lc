@@ -29,4 +29,4 @@ if __name__ == '__main__':
     ss = Solution()
     res = ss.findMaxLength(nums)
 
-    print(res)
+    print(res) # 6

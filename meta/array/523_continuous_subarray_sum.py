@@ -33,4 +33,4 @@ class Solution(object):
 ss = Solution()
 nums = [23,2,6,4,7]; k = 6
 res = ss.checkSubarraySum(nums, k)
-print(res)
+print(res) # True
