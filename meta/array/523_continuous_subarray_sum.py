@@ -26,7 +26,7 @@ class Solution(object):
                     print(curr_sum)
                     return True
                 dp[i].add(curr_sum)
-                print(dp)
+                print(dp) # [{23}, {25, 2}, {8, 6, 31}, set(), set()]
 
         return False
 

@@ -12,3 +12,6 @@ class Solution:
       return True
     return (self.hasPathSum(root.left, summ - root.val) or
             self.hasPathSum(root.right, summ - root.val))
+
+root = [5,4,8,11,None,13,4,7,2,None,None,None,1]
+targetSum = 22

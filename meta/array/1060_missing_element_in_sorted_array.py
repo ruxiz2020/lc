@@ -15,7 +15,7 @@ def missingElement(nums, k):
     return nums[-1] + (k - missing_count)
 
 
-nums = [4,7,9,10]; k = 1
+nums = [4,7,9,10]; k = 2
 # The kth missing number is 5.
 res = missingElement(nums, k)
-print(res)
+print(res) # 6

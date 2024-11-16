@@ -21,4 +21,4 @@ points = [[3,3],[5,-1],[-2,4]]; k = 2
 
 ss = Solution()
 res = ss.kClosest(points, k)
-print(res)
+print(res) #[[3, 3], [-2, 4]]

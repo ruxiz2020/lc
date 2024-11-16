@@ -1,21 +1,21 @@
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
         m, n = len(word), len(abbr)
-        i = j = x = 0
+        i = j = num = 0
         while i < m and j < n:
             if abbr[j].isdigit():
                 if abbr[j] == "0" and x == 0:
                     return False
-                x = x * 10 + int(abbr[j])
+                num = num * 10 + int(abbr[j])
             else:
-                i += x
-                x = 0
+                i += num
+                num = 0
                 if i >= m or word[i] != abbr[j]:
                     return False
                 i += 1
             j += 1
-            print(i, x)
-        return i + x == m and j == n
+            print(i, num)
+        return i + num == m and j == n
 
 
 ss = Solution()
@@ -24,4 +24,4 @@ word = "listofitemsisgoods"
 abbr = "l1s15"
 
 res = ss.validWordAbbreviation(word, abbr)
-print(res)
+print(res) # True

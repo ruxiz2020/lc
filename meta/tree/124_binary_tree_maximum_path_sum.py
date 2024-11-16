@@ -25,3 +25,5 @@ class Solution:
 
         dfs(root)
         return res[0]
+
+root = [1,2,3]

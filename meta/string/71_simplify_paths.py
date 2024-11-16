@@ -36,4 +36,4 @@ class Solution(object):
 
 path = "/home//foo/"
 res = Solution().simplifyPath(path)
-print(res)
+print(res) # /home/foo

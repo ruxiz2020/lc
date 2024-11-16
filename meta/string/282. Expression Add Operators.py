@@ -38,4 +38,4 @@ class Solution:
 num = "2032";
 target = 8
 res = Solution().addOperators(num, target)
-print(res)  # ['2+3*2+0', '2+3*2-0', '2*3+2+0', '2*3+2-0']
+print(res)  # ['2+0+3*2', '2-0+3*2']

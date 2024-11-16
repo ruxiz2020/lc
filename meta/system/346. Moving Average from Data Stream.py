@@ -17,6 +17,6 @@ class MovingAverage:
 ma = MovingAverage(3)
 
 res = ma.next(1)
-print(res)
+print(res) # 1
 res = ma.next(10)
-print(res)
+print(res) # 5.5

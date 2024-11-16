@@ -26,3 +26,10 @@ class Solution:
             for c in range(COLS):
                 dfs(r, c, -1)
         return max(dp.values())
+
+
+matrix = [[9,9,4],
+          [6,6,8],
+          [2,1,1]]
+res = Solution().longestIncreasingPath(matrix)
+print(res) # 4

@@ -21,4 +21,4 @@ class Solution(object):
 
 intervals = [[1,3],[2,6],[8,10],[15,18]]
 res = Solution().merge(intervals)
-print(res)
+print(res) #[[1, 6], [8, 10], [15, 18]]

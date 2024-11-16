@@ -29,4 +29,4 @@ class Solution:
 ss = Solution()
 s = "3-2*-2"
 res = ss.calculate(s)
-print(res)
+print(res) # 1

@@ -8,6 +8,8 @@ class Solution:
         return True
 
 
-matrix = [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]]
+matrix = [[1, 2, 3, 4],
+          [5, 1, 2, 3],
+          [9, 5, 1, 2]]
 res = Solution().isToeplitzMatrix(matrix)
 print(res)

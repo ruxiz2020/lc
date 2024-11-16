@@ -9,3 +9,8 @@ class Solution:
                         or skip_r == skip_r[::-1])
             l, r = l + 1, r - 1
         return True
+
+
+s = "abca"
+res = Solution().validPalindrone(s)
+print(res) # True

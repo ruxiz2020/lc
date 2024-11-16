@@ -10,7 +10,9 @@ class Solution:
         low, high = 1, max(piles)
         while low < high:
             mid = (low + high) // 2
+            print(mid)
             if can_eat_all(mid):
+                print("can eat all")
                 high = mid
             else:
                 low = mid + 1
@@ -19,4 +21,4 @@ class Solution:
 piles = [3, 6, 7, 11];
 h = 8
 res = Solution().minEatingSpeed(piles, h)
-print(res)
+print(res) # 4

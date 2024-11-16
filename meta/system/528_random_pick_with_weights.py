@@ -21,7 +21,7 @@ class Solution:
         #doing the prefix sum
         for i in range(1, len(w)):
             self.w[i] += self.w[i-1]
-        print(self.w)
+        print(self.w) #[1, 4, 9, 19]
 
     def pickIndex(self) -> int:
         #selecting a random value and doing binary search to find which index it hit

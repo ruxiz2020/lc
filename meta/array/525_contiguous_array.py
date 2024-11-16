@@ -19,7 +19,7 @@ class Solution:
                 res = max(res, i - index_map[total_sum])
             else:
                 index_map[total_sum] = i
-        print(index_map)
+        print(index_map) # {0: -1, -1: 0, 1: 4}
         return res
 
 if __name__ == '__main__':
