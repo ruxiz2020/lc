@@ -12,13 +12,13 @@ class Solution:
             ts = int(t[2])
             if t[1] == 'start':
                 if stk:
-                    ans[stk[-1]] += ts - curr
+                    ans[stk[-1]] += ts - curr # task not finished, end excluded
                 stk.append(fid)
                 curr = ts
                 print(stk)
             else:
                 fid = stk.pop()
-                ans[fid] += ts - curr + 1
+                ans[fid] += ts - curr + 1 # task finished, end included
                 curr = ts + 1
         return ans
 

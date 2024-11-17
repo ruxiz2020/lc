@@ -10,3 +10,8 @@ class Solution:
                 ans.append(i)
                 mx = heights[i]
         return ans[::-1]
+
+
+heights = [4,2,3,1]
+res = Solution().findBuildings(heights)
+print(res) # [0, 2, 3]

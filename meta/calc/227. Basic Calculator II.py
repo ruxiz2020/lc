@@ -23,10 +23,12 @@ class Solution:
             cur = 0
             if (i < len(s)): op = s[i]
             i += 1
+        print(nums)
         return sum(nums)
 
 
 ss = Solution()
-s = "3-2*-2"
+s = "3-2*2"
+s = "5-3/2"
 res = ss.calculate(s)
 print(res) # 1

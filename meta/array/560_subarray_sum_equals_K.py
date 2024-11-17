@@ -12,12 +12,12 @@ class Solution:
             prefix += num
             ans += count[prefix - k]
             count[prefix] += 1
-            print(count)
+            print(count) # Counter({0: 1, 1: 1, 3: 1, 6: 1, 9: 1})
 
         return ans
 
 
-nums = [1,2,3]; k = 3
+nums = [1,2,3,3]; k = 3
 ss = Solution()
 res = ss.subarraySum(nums, k)
 

@@ -31,5 +31,5 @@ class Solution:
 
 ss = Solution([1, 3, 5, 10])
 res = ss.pickIndex()
-print(res)
+print(res) # 2 / 3
 
