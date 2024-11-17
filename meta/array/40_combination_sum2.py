@@ -57,4 +57,4 @@ ss = Solution()
 
 res = ss.combinationSum2(candidates, target)
 
-print(res)
+print(res) # [[1, 1, 6]]

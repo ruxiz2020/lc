@@ -8,17 +8,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-class Solution:
-    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        res = root.val
-
-        while root:
-            res = min(res, root.val, key = lambda x: (abs(target - x), x))
-            root = root.left if target < root.val else root.right
-        return res
-
-
-root = [4,2,5,1,3]; target = 3.714286
 
 def insert_into_bst(root, value):
     if not root:
@@ -37,8 +26,18 @@ def list_to_bst(lst):
         insert_into_bst(root, value)  # Insert each remaining element into the BST
     return root
 
-# Convert the list to BST
-root_list = [4, 2, 5, 1, 3]
+class Solution:
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        res = root.val
+
+        while root:
+            res = min(res, root.val, key = lambda x: (abs(target - x), x))
+            root = root.left if target < root.val else root.right
+        return res
+
+
+root_list = [4,2,5,1,3]; target = 3.714286
+
 bst_root = list_to_bst(root_list)
 
 res = Solution().closestValue(bst_root, target)
