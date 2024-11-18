@@ -23,7 +23,7 @@ class Solution:
         for i in range(n):
             for j in range(n):
                 if grid[i][j] == 1:
-                    area[index] = dfs(i, j, index)
+                    area[index] = dfs(i, j, index)##{2: 1, 3: 1}
                     index += 1
         res = max(area.values() or [0])
         for i in range(n):

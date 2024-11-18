@@ -50,7 +50,9 @@ class Solution:
                 return
 
             dfs(root.left, path * 10 + root.val)
+            print(ans) # 12
             dfs(root.right, path * 10 + root.val)
+            print(ans) # 25
 
         dfs(root, 0)
         return ans

@@ -35,8 +35,8 @@ class Solution:
                                     dist[x][y] += di
                                     que.append((x, y))
                                     vis.add((x, y))
-        print(dist)
-        print(cnt)
+        print(dist)#[[0, 9, 0, 9, 0], [9, 8, 7, 8, 9], [10, 9, 0, 9, 10]]
+        print(cnt)#[[0, 3, 0, 3, 0], [3, 3, 3, 3, 3], [3, 3, 0, 3, 3]]
         ans = inf
         for i in range(m):
             for j in range(n):

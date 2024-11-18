@@ -48,4 +48,8 @@ if __name__ == '__main__':
     ss = Solution01()
     res = ss.uniquePaths(m, n)
 
-    print(res)
+    print(res)#28
+
+    import math
+    result = math.comb(m + n -2, n -1)
+    print(result)

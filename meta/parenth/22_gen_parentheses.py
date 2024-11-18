@@ -76,7 +76,7 @@ if __name__ == '__main__':
     ss = Solution01()
     res = ss.generateParenthesis(n)
 
-    print(res)
+    print(res)# ['((()))', '(()())', '(())()', '()(())', '()()()']
 
     # n = 2
     # ss = Solution02()
