@@ -16,6 +16,20 @@ def list_to_bst(lst):
         insert_into_bst(root, value)  # Insert each remaining element into the BST
     return root
 
+# Function to print the list forward
+def print_forward(head):
+    print("Doubly Linked List (Forward): ", end="")
+    current = head
+    visited = set()  # Keep track of visited nodes to avoid infinite loops
+    while current:
+        if current in visited:  # Detect cycles
+            print("[Cycle Detected]")
+            break
+        visited.add(current)
+        print(current.val, end=" <-> " if current.right else "")
+        current = current.right
+
+    print()
 
 # Definition for a Node.
 class Node:
@@ -54,4 +68,4 @@ root_list = [4, 2, 5, 1, 3]
 binary_tree_root = list_to_bst(root_list)
 
 res = Solution().treeToDoublyList(binary_tree_root)
-print(res)
+print_forward(res) # 1 <-> 2 <-> 3 <-> 4 <-> 5
