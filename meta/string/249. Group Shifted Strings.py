@@ -30,4 +30,5 @@ class Solution:
 strings = ["abc","bcd","acef","xyz","az","ba","a","z"]
 
 ss = Solution()
-ss.groupStrings(strings)
+res = ss.groupStrings(strings)
+print(res) # [['abc', 'bcd', 'xyz'], ['acef'], ['az', 'ba'], ['a', 'z']]

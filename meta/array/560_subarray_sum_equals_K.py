@@ -18,6 +18,7 @@ class Solution:
 
 
 nums = [1,2,3,3]; k = 3
+nums = [1,2, 3]; k = 3
 ss = Solution()
 res = ss.subarraySum(nums, k)
 
