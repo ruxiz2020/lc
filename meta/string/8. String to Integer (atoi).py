@@ -20,3 +20,7 @@ class Solution:
                 return 2 ** 31 - 1
 
         return sign * num
+
+s = " -042"
+res = Solution().myAtoi(s)
+print(res)

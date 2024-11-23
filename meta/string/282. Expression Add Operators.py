@@ -36,6 +36,6 @@ class Solution:
 
 
 num = "2032";
-target = 8
+target = 34
 res = Solution().addOperators(num, target)
 print(res)  # ['2+0+3*2', '2-0+3*2']

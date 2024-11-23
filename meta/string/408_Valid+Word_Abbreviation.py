@@ -4,7 +4,7 @@ class Solution:
         i = j = num = 0
         while i < m and j < n:
             if abbr[j].isdigit():
-                if abbr[j] == "0" and x == 0:
+                if abbr[j] == "0" and num == 0:
                     return False
                 num = num * 10 + int(abbr[j])
             else:
