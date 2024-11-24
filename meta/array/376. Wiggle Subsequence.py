@@ -16,6 +16,6 @@ class Solution:
         return max(increasing, decreasing)
 
 
-nums = [1,7,4,9,2,5]
+nums = [1, 7, 4, 9, 2, 5, 6, 5]
 res = Solution().wiggleMaxLength(nums)
-print(res)
+print(res) # 7

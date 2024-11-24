@@ -28,6 +28,7 @@ class Solution:
             if stk and stk[-1][1] >= nums[i]:  # only keep the rightmost duplicate
                 continue
             stk.append((i, nums[i]))
+        print(stk) # [(3, '3'), (2, '7'), (1, '9')]
 
         for i in range(n):
             while stk and stk[-1][0] <= i:

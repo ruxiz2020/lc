@@ -31,4 +31,4 @@ ss = Solution()
 s = "3-2*2"
 s = "5-3/2"
 res = ss.calculate(s)
-print(res) # 1
+print(res)  # 1

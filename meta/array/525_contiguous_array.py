@@ -24,7 +24,7 @@ class Solution:
 
 if __name__ == '__main__':
 
-    nums = [0, 1, 0, 1, 1, 0]
+    nums = [0, 1, 0, 1, 1, 0, 1, 1, 0, 1]
 
     ss = Solution()
     res = ss.findMaxLength(nums)

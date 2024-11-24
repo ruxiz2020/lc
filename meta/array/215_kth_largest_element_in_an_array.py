@@ -9,10 +9,10 @@ class Solution(object):
         n + k(log n)
         """
         heapq.heapify(nums)
-        amount = len(nums)
-        while amount > k:
+        n = len(nums)
+        while n > k:
             heapq.heappop(nums)
-            amount -= 1
+            n -= 1
         return nums[0]
 
 

@@ -31,7 +31,7 @@ class Solution:
 
 
 s = "abcdeca"; k = 2
-s = "abbababa"; k = 1
+#s = "abbababa"; k = 1
 
 """
 0 (1) 2 3 4 5
