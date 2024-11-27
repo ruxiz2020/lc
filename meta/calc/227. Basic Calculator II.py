@@ -19,6 +19,7 @@ class Solution:
             elif op == '/':
                 # sign = -1 if nums[-1] < 0 or cur < 0 else 1
                 sign = -1 if (nums[-1] < 0) != (cur < 0) else 1
+                print(abs(cur), sign)
                 nums[-1] = abs(nums[-1]) // abs(cur) * sign
             cur = 0
             if (i < len(s)): op = s[i]

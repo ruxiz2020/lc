@@ -15,18 +15,18 @@ class Solution(object):
         res, resLen = '', float('inf')
         l, r = 0, 0
 
-        for r in range(len(s)): #enlarge the window to the right
+        for r in range(len(s)):  # enlarge the window to the right
             if s[r] in countT:
                 countT[s[r]] -= 1
                 if countT[s[r]] == 0:
                     have += 1
 
-            #move left pointer
-            while(l <= r and have == need):
+            # move left pointer
+            while (l <= r and have == need):
                 print(l, r, res)
                 Len = r + 1 - l
                 if Len < resLen:
-                    res = s[l:r+1]
+                    res = s[l:r + 1]
                     resLen = Len
 
                 if s[l] in countT:
@@ -39,10 +39,7 @@ class Solution(object):
         return res
 
 
-
-
 if __name__ == '__main__':
-
     s = "ADOBECODEBANC"
     t = "ABC"
 

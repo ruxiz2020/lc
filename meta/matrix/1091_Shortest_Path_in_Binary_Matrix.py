@@ -98,4 +98,4 @@ grid = [[0,0,0],[1,1,0],[1,1,0]]
 grid = [[0,1],[1,0]]
 res, path = ss.shortestPathBinaryMatrix2(grid)
 print(res) #2
-print(path)
+print(path)#[(0, 0), (1, 1)]

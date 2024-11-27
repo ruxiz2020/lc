@@ -34,8 +34,8 @@ class Solution:
                         tx, ty = i + dx, j + dy
                         if 0 <= tx < n and 0 <= ty < n and grid[tx][ty] > 1:
                             tmp.add(grid[tx][ty])
-                    print(tmp)
-                    print(area)
+                    print(tmp)# {2, 3}
+                    print(area)#{2: 1, 3: 1}
                     res = max(res, 1 + sum(area[t] for t in tmp))
         return res
 

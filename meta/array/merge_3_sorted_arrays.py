@@ -1,5 +1,6 @@
 import heapq
 
+
 def merge_sorted_arrays(arr1, arr2, arr3):
     # O(nlogk)
     # Combine all three arrays into a min-heap
@@ -20,10 +21,11 @@ def merge_sorted_arrays(arr1, arr2, arr3):
 
     return merged_array
 
+
 # Example usage
 arr1 = [1, 4, 7]
 arr2 = [2, 5, 8]
 arr3 = [3, 6, 9, 10]
 
 merged_array = merge_sorted_arrays(arr1, arr2, arr3)
-print(merged_array) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(merged_array)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]

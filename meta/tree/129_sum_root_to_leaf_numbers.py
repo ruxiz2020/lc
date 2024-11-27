@@ -46,6 +46,7 @@ class Solution:
             if not root:
                 return
             if not root.left and not root.right:
+                print(path)
                 ans += path * 10 + root.val
                 return
 

@@ -29,8 +29,9 @@ class Solution:
         return ans
 
 
-
-nums = [0,1,3,50,75]; lower = 0; upper = 99
+nums = [0, 1, 3, 50, 75];
+lower = 0;
+upper = 99
 
 ss = Solution()
 res = ss.findMissingRanges(nums, lower, upper)

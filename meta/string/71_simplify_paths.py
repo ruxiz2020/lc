@@ -18,10 +18,11 @@ class Solution(object):
         i = 0
         res = ''
         while i < len(path):
-            end = i + 1
+            end = i + 1 # to skip /
             while end < len(path) and path[end] != "/":
                 end += 1
             sub = path[i + 1:end]
+            print(sub)
             if len(sub) > 0:
                 if sub == "..":
                     if stack != []: stack.pop()

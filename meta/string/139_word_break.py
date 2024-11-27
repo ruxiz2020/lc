@@ -1,4 +1,3 @@
-
 class Solution:
     def wordBreak(self, s, wordDict):
         L = len(s)
@@ -9,12 +8,11 @@ class Solution:
                 if dp[j] and s[j:i] in wordDict:
                     print(s[j:i])
                     dp[i] = True
-        print(dp) #[True, False, False, False, True, False, False, False, True]
+        print(dp)  # [True, False, False, False, True, False, False, False, True]
         return dp[-1]
 
 
 if __name__ == '__main__':
-
     s = "leetcode"
     wordDict = ["leet", "code"]
 

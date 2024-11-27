@@ -13,6 +13,7 @@ class Solution:
                 return None
             p = s.find('(')
             if p == -1:
+                # print(s)
                 return TreeNode(int(s))
             root = TreeNode(int(s[:p]))
             start = p
@@ -24,9 +25,13 @@ class Solution:
                     cnt -= 1
                 if cnt == 0:
                     if start == p:
+                        print("left" + s[start + 1 : i])
+                        print(start, p, i)
                         root.left = dfs(s[start + 1 : i])
                         start = i + 1
                     else:
+                        print("right" + s[start + 1 : i])
+                        print(start, p, i)
                         root.right = dfs(s[start + 1 : i])
             return root
 
@@ -34,3 +39,5 @@ class Solution:
 
 
 s = "4(2(3)(1))(6(5))"
+
+res = Solution().str2tree(s)
