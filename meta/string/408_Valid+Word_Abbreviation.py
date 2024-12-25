@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(M + N)
+    O(1)
+    """
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
         m, n = len(word), len(abbr)
         i = j = num = 0

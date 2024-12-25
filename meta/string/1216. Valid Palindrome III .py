@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(N ** 2)
+    O(N ** 2)
+    """
     def isValidPalindrome(self, s: str, k: int) -> bool:
         return len(s) - self._longestPalindromeSubseq(s) <= k
 
@@ -29,8 +33,17 @@ class Solution:
         print(dp[0][n - 1])
         return dp[0][n - 1]
 
-
+"""
+[1, 1, 1, 1, 1, 3, 5]
+[0, 1, 1, 1, 1, 3, 3]
+[0, 0, 1, 1, 1, 3, 3]
+[0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 0, 1, 1, 1]
+[0, 0, 0, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 1]
+"""
 s = "abcdeca"; k = 2
+
 #s = "abbababa"; k = 1
 
 """

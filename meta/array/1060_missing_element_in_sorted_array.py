@@ -1,4 +1,8 @@
 def missingElement(nums, k):
+    """
+    O(n + M) M: number of missing number
+    O(1)
+    """
     missing_count = 0
     i = 1
 

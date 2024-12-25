@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         O(N 2 ^N)
+        O(N 2 ^N)
         """
         res = []
         self.dfs(nums, 0, res, [])
@@ -21,5 +22,5 @@ if __name__ == '__main__':
 
     ss = Solution()
     res = ss.subsets(nums)
-
+    # [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
     print(res)

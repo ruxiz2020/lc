@@ -22,6 +22,45 @@ def merge_sorted_arrays(arr1, arr2, arr3):
     return merged_array
 
 
+
+
+def merge_two_sorted_arrays(a, b):
+    """
+    Merge two sorted arrays using a two-pointer approach.
+    Returns a single sorted array containing all elements of a and b.
+    O(n1 + n2 + n3)
+    """
+    merged = []
+    i, j = 0, 0
+    while i < len(a) and j < len(b):
+        if a[i] <= b[j]:
+            merged.append(a[i])
+            i += 1
+        else:
+            merged.append(b[j])
+            j += 1
+
+    # Append any remaining elements
+    while i < len(a):
+        merged.append(a[i])
+        i += 1
+    while j < len(b):
+        merged.append(b[j])
+        j += 1
+
+    return merged
+
+def merge_sorted_arrays(arr1, arr2, arr3):
+    """
+    Merge three sorted arrays by first merging arr1 and arr2,
+    then merging the result with arr3.
+    """
+    merged12 = merge_two_sorted_arrays(arr1, arr2)
+    merged123 = merge_two_sorted_arrays(merged12, arr3)
+    return merged123
+
+
+
 # Example usage
 arr1 = [1, 4, 7]
 arr2 = [2, 5, 8]

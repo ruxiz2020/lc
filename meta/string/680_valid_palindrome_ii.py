@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(N)
+    O(N)
+    """
     def validPalindrone(self, s: str) -> bool:
         l, r = 0, len(s) - 1
 

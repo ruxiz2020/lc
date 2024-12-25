@@ -12,4 +12,4 @@ class Solution:
 nums = [3,0,1]
 ss = Solution()
 res = ss.missingNumber(nums)
-print(res)
+print(res) # 2

@@ -3,6 +3,9 @@ from typing import List
 
 
 class Solution:
+    """O(N + k LOG(N))
+    O(N + K)
+    """
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         pts = []
         for x, y in points:
@@ -10,10 +13,10 @@ class Solution:
             pts.append([dist, x, y])
 
         res = []
-        heapq.heapify(pts)
+        heapq.heapify(pts) #O(N)
         print(pts)
         for i in range(k):
-            dist, x, y = heapq.heappop(pts)
+            dist, x, y = heapq.heappop(pts) # O(log N)
             res.append([x, y])
         return res
 

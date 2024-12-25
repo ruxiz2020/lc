@@ -4,6 +4,10 @@ from typing import List
 
 
 class Solution:
+    """
+    O(B * M * N)
+    O(M * N)
+    """
     def shortestDistance(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         que = deque()

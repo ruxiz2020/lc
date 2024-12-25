@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    '''monotonic decreasing order queue'''
+    '''monotonic decreasing order queue
+    O(N)
+    O(k)'''
 
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         indexQ = collections.deque()

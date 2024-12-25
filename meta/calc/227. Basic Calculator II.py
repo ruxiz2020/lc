@@ -1,5 +1,9 @@
 # Author: Huahua
 class Solution:
+    """
+    O(n)
+    O(n)
+    """
     def calculate(self, s: str) -> int:
         nums = []
         op = '+'
@@ -32,4 +36,4 @@ ss = Solution()
 s = "3-2*2"
 s = "5-3/2"
 res = ss.calculate(s)
-print(res)  # 1
+print(res)  # 4

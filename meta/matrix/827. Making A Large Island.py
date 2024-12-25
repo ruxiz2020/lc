@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    """O(N * N)"""
     def largestIsland(self, grid: List[List[int]]) -> int:
         def dfs(x, y, index):
             q = [(x, y)]

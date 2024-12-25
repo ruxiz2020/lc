@@ -22,6 +22,10 @@ class Node:
 
 
 class Solution:
+    """
+    O(N)
+    O(N)
+    """
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         oldToCopy = {None: None}
 

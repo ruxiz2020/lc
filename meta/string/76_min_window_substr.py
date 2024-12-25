@@ -4,6 +4,8 @@ class Solution(object):
         :type s: str
         :type t: str
         :rtype: str
+        O( S + T)
+        O(U) u: number of unique characters in t
         """
         if t == "": return ""
         countT = {}

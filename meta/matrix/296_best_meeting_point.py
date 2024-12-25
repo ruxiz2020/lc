@@ -1,6 +1,10 @@
 
 
 class Solution(object):
+    """
+    O(M * N)
+    O(p), p: count of 1s
+    """
     def minTotalDistance(self, grid):
         """
         :type grid: List[List[int]]
@@ -14,7 +18,7 @@ class Solution(object):
             for j in range(len(grid[0])):
                 if grid[i][j] == 1:
                     x.append(i)
-        print(x)
+        print(x) # [0, 0, 2]
 
         if len(x) == 0:
             return 0
@@ -26,7 +30,7 @@ class Solution(object):
                 if grid[i][j] == 1:
                     y.append(j)
 
-        print(y)
+        print(y) # [0, 2, 4]
 
         if size % 2 == 1:
             X, Y = x[size // 2], y[size // 2]

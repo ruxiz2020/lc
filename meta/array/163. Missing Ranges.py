@@ -1,5 +1,8 @@
 class Solution:
-
+    """
+    O(n)
+    O(n)
+    """
     def findMissingRanges(
             self,
             nums: list[int],

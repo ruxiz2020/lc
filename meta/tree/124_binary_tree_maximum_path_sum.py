@@ -35,6 +35,10 @@ def list_to_binary_tree(lst):
     return root
 
 class Solution:
+    """
+    O(N)
+    O(H)
+    """
     def maxPathSum(self, root: TreeNode) -> int:
         res = [root.val]
 

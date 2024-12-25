@@ -3,6 +3,8 @@ class Solution(object):
         """
         :type strs: List[str]
         :rtype: str
+        O(M * N)
+        O(1)
         """
         if not strs: return ""
         pre = min(strs, key = len)

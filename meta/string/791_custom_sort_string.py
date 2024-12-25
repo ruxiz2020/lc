@@ -3,13 +3,17 @@ import string
 
 
 class Solution:
+    """
+    O(N)
+    O(N)
+    """
     def customSortString(self, order: str, s: str) -> str:
         ans = ""
         count = [0] * 26
 
         for c in s:
             count[string.ascii_lowercase.index(c)] += 1
-        print(count)
+        print(count) # [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         for c in order:
             while count[string.ascii_lowercase.index(c)] > 0:

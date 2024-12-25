@@ -17,6 +17,9 @@ The given number is in the range [0, 108]
 
 
 class Solution:
+    """O(n)
+    O(N)"""
+
     def maximumSwap(self, num: int) -> int:
         """
         stk maintain a increasing stack from right to left
@@ -24,11 +27,11 @@ class Solution:
         stk = []
         nums = list(str(num))
         n = len(nums)
-        for i in range(n-1, -1, -1): # find the largest num from the right
+        for i in range(n - 1, -1, -1):  # find the largest num from the right
             if stk and stk[-1][1] >= nums[i]:  # only keep the rightmost duplicate
                 continue
             stk.append((i, nums[i]))
-        print(stk) # [(3, '3'), (2, '7'), (1, '9')]
+        print(stk)  # [(3, '3'), (2, '7'), (1, '9')]
 
         for i in range(n):
             while stk and stk[-1][0] <= i:

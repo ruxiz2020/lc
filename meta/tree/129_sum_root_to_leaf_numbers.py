@@ -38,6 +38,10 @@ def list_to_binary_tree(lst):
 
 
 class Solution:
+    """
+    O(N)
+    O(H)
+    """
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         ans = 0
 

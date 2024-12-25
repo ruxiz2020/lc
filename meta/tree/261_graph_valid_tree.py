@@ -3,6 +3,8 @@ class Solution:
     @param n: An integer
     @param edges: a list of undirected edges
     @return: true if it's a valid tree, or false
+    O(N)
+    O(N)
     """
     def validTree(self, n, edges):
         if not n:

@@ -4,7 +4,7 @@ class Solution01(object):
         :type m: int
         :type n: int
         :rtype: int
-        O(log(m+n))
+        O(n)
         factorial(m + n -2)//(factorial(m - 1) * factorial(n - 1))
         """
         total = m + n - 2

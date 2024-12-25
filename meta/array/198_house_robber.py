@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(n)
+    O(1)
+    """
     def rob(self, nums):
         dp0 = dp1 = 0
         for i in range(len(nums)):

@@ -37,6 +37,10 @@ def list_to_binary_tree(lst):
 from collections import defaultdict
 from typing import Optional, List
 class Solution:
+    """
+    O(NlogN)
+    O(H + N)
+    """
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         def dfs(root, depth, offset):
             if root is None:
@@ -48,8 +52,9 @@ class Solution:
         d = defaultdict(list)
         dfs(root, 0, 0)
         ans = []
-        for _, v in sorted(d.items()):
-            v.sort(key=lambda x: x[0])
+        print(d) #{0: [(0, 3), (2, 15)], -1: [(1, 9)], 1: [(1, 20)], 2: [(2, 7)]}
+        for _, v in sorted(d.items()): # O(Klog(k))
+            v.sort(key=lambda x: x[0]) # O(Llog(L))
             ans.append([x[1] for x in v])
         return ans
 
@@ -60,4 +65,4 @@ binary_tree_root = list_to_binary_tree(root_list)
 
 
 res = Solution().verticalOrder(binary_tree_root)
-print(res)
+print(res) # [[9], [3, 15], [20], [7]]

@@ -2,6 +2,7 @@ import collections
 
 
 class Solution(object):
+    """O(M * N)"""
     def numIslands(self, grid):
         """DFS"""
         if not grid:

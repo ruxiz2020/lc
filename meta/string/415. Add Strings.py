@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(MAX(M, N))
+    O(MAX(M, N))
+    """
     def addStrings(self, num1: str, num2: str) -> str:
         ans = []
         carry = 0

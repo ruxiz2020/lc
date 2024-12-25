@@ -37,6 +37,11 @@ def print_tree(tree):
 
 
 class Solution(object):
+    """
+    O(H)
+    O(1)
+    """
+
     def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode

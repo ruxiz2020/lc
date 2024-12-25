@@ -1,6 +1,10 @@
 
 
 class Solution(object):
+    """
+    O(N)
+    O(D)
+    """
     def depthSum(self, nestedList):
         def DFS(nestedList, depth):
             temp_sum = 0

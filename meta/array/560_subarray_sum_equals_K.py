@@ -3,6 +3,10 @@ from typing import List
 
 
 class Solution:
+    """
+    O(N)
+    O(N)
+    """
     def subarraySum(self, nums: List[int], k: int) -> int:
         ans = 0
         prefix = 0

@@ -5,6 +5,7 @@ class Solution(object):
         :type n: int
         :rtype: float
         O(logn)
+        O(logn)
         """
         if 0 == n:
             return 1

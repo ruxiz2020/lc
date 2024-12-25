@@ -46,6 +46,10 @@ from typing import List, Tuple, Deque
 from collections import deque
 
 class Solution:
+    """
+    O(N ^ 4)
+    O(N ^ 4)
+    """
     def shortestPathBinaryMatrix2(self, grid: List[List[int]]) -> Tuple[int, List[Tuple[int, int]]]:
         # Check if the starting cell is blocked
         if grid[0][0] != 0:
@@ -84,7 +88,7 @@ class Solution:
                             queue.append((x, y))
                             # Record the path to reach this cell
                             paths[(x, y)] = paths[(i, j)] + [(x, y)]
-                            print(paths)
+                            print(paths) # {(0, 0): [(0, 0)], (1, 1): [(0, 0), (1, 1)]}
             # Increment path length at the conclusion of the level
             path_length += 1
 

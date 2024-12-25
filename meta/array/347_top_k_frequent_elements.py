@@ -6,14 +6,17 @@ from typing import List
 class Solution01(object):
 
     def topKFrequent(self, nums, k):
-        '''klogn'''
-        res=[]
+        '''
+        O (N log k)
+        O(N)
+        '''
+        res = []
         dict = collections.Counter(nums)
         for val, count in dict.items():
-            if len(res)<k:
-                heapq.heappush(res,(count,val))
+            if len(res) < k:
+                heapq.heappush(res, (count, val))  # log k
             else:
-                heapq.heappush(res,(count,val))
+                heapq.heappush(res, (count, val))
                 heapq.heappop(res)
         for c, v in res:
             print(c, v)
@@ -21,6 +24,8 @@ class Solution01(object):
 
 
 from collections import Counter
+
+
 class Solution(object):
     def topKFrequent(self, nums, k):
         """
@@ -31,10 +36,12 @@ class Solution(object):
         counter = Counter(nums).most_common()
         return [counter[i][0] for i in range(k)]
 
+
 class Solution02:
     '''bucket sort'''
-    # O(n)
-    #
+
+    # O(N)
+    # O(N)
     def topKFrequent(self, nums: List, k: int) -> List:
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
@@ -44,7 +51,7 @@ class Solution02:
         for n, c in count.items():
             freq[c].append(n)
 
-        print(freq)
+        print(freq)  # [[], [3], [2], [1], [], [], []]
         res = []
         for i in range(len(freq) - 1, 0, -1):
             print(i)
@@ -55,8 +62,8 @@ class Solution02:
 
 
 if __name__ == '__main__':
-
-    nums = [1,1,1,2,2,3]; k = 2
+    nums = [1, 1, 1, 2, 2, 3];
+    k = 2
 
     ss = Solution02()
     res = ss.topKFrequent(nums, k)

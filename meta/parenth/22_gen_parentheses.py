@@ -7,6 +7,7 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         Catalan(n) = (2n)!/((n+1)!*n!)
+        O(n)
         """
         res = []
         self.dfs(res, n, n, '')

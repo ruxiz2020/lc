@@ -68,10 +68,10 @@ class Solution02:
 
         while len(lists) > 1:
             mergedLists = []
-            for i in range(0, len(lists), 2):
+            for i in range(0, len(lists), 2): # O(log K)
                 l1 = lists[i]
                 l2 = lists[i + 1] if (i + 1) < len(lists) else None
-                mergedLists.append(self.mergeList(l1, l2))
+                mergedLists.append(self.mergeList(l1, l2)) # O(N)
             lists = mergedLists
         return lists[0]
 

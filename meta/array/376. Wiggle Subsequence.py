@@ -2,6 +2,10 @@ import itertools
 
 
 class Solution:
+    """
+    O(N)
+    O(1)
+    """
     def wiggleMaxLength(self, nums: list[int]) -> int:
         increasing = 1
         decreasing = 1

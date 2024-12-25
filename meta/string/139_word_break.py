@@ -1,5 +1,9 @@
 class Solution:
     def wordBreak(self, s, wordDict):
+        """
+        O( N^2 * M), m: avg words length in wordDict
+        O(N)
+        """
         L = len(s)
         dp = [False] * (L + 1)
         dp[0] = True

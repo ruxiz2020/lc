@@ -26,6 +26,10 @@ from typing import Optional
 
 
 class Solution:
+    """
+    O(N)
+    O(H)
+    """
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         def dfs(root: Optional[TreeNode]) -> int:
             if root is None:

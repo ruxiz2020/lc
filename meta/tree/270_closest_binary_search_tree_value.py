@@ -27,6 +27,10 @@ def list_to_bst(lst):
     return root
 
 class Solution:
+    """
+    O(H) or O(logN)
+    O(1)
+    """
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
         res = root.val
 
@@ -41,4 +45,4 @@ root_list = [4,2,5,1,3]; target = 3.714286
 bst_root = list_to_bst(root_list)
 
 res = Solution().closestValue(bst_root, target)
-print(res)
+print(res) # 4

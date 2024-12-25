@@ -20,6 +20,13 @@ class Solution(object):
 
 # ITERATIVE DFS
 class Solution:
+    """
+
+    O(N)
+    O(H)
+    H: O(N) worst or O(log N) for balanced tree
+    """
+
     def maxDepth(self, root: TreeNode) -> int:
         stack = [[root, 1]]
         res = 0

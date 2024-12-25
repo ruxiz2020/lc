@@ -1,4 +1,8 @@
 class Solution(object):
+    """
+    O(N)
+    O(H)
+    """
     def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode

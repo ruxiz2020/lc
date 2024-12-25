@@ -37,25 +37,47 @@ def list_to_binary_tree(lst):
 
 
 class Solution:
+    """
+    O(N)
+    O(H)
+    """
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        # Initialize a variable to store the maximum diameter found during traversal.
         ans = 0
 
+        # Helper function to calculate the maximum depth of a subtree.
+        # This function will also calculate the diameter as a side effect.
         def maxDepth(root: TreeNode) -> int:
-            nonlocal ans
+            nonlocal ans  # Use the `ans` variable from the outer scope to store the diameter.
+
+            # Base case: If the node is None (leaf node's child), its depth is 0.
             if not root:
                 return 0
 
+            # Recursively calculate the maximum depth of the left subtree.
             l = maxDepth(root.left)
+
+            # Recursively calculate the maximum depth of the right subtree.
             r = maxDepth(root.right)
+
+            # Update the diameter at the current node.
+            # Diameter at the current node = sum of the depths of the left and right subtrees.
             ans = max(ans, l + r)
+
+            # Return the maximum depth of the subtree rooted at the current node.
+            # Add 1 to include the current node itself.
             return 1 + max(l, r)
 
+        # Start the recursion from the root to calculate the diameter.
         maxDepth(root)
+
+        # Return the maximum diameter found.
         return ans
+
 
 
 lst = [1,2,3,4,5]
 root = list_to_binary_tree(lst)
 res = Solution().diameterOfBinaryTree(root)
 
-print(res)
+print(res) #3

@@ -35,6 +35,10 @@ def list_to_binary_tree(lst):
     return root
 
 class Solution(object):
+    """
+    O(N)
+    O(N)
+    """
     def isCompleteTree(self, root):
         """
         :type root: TreeNode

@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(N)
+    O(1)
+    """
     def myAtoi(self, s: str) -> int:
         s = s.strip()
         if not s:

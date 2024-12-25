@@ -1,4 +1,9 @@
 class Solution:
+    """
+    O(N)
+    O(N)
+    """
+
     def minRemoveToMakeValid(self, s: str) -> str:
         stack = []  # unpaired '(' indices
         chars = list(s)

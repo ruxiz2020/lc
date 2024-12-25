@@ -50,6 +50,10 @@ def print_tree(root):
     return result
 
 class Solution:
+    """
+    O(N)
+    O(1)
+    """
     def connect(self, node: 'Optional[Node]') -> 'Optional[Node]':
 
         # nxt: start of next row

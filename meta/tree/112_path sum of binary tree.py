@@ -7,6 +7,11 @@ class TreeNode:
 
 
 class Solution:
+    """
+
+    O(N)
+    O(H)
+    """
     def hasPathSum(self, root: TreeNode, summ: int) -> bool:
         if not root:
             return False

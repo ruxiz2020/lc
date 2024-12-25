@@ -2,6 +2,7 @@ class Solution:
     """
 
     O (log ^2 n)
+    O(1)
     """
     def divide(self, dividend: int, divisor: int) -> int:
         # -2^{31} / -1 = 2^31 will overflow, so return 2^31 - 1.
@@ -13,9 +14,9 @@ class Solution:
         dvd = abs(dividend)
         dvs = abs(divisor)
 
-        while dvd >= dvs:
+        while dvd >= dvs: # number of iterations: O(logN)
             k = 1
-            while k * 2 * dvs <= dvd:
+            while k * 2 * dvs <= dvd: #  O(logN)
                 k <<= 1
             dvd -= k * dvs
             ans += k

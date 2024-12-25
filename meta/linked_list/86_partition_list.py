@@ -13,6 +13,10 @@ def lst2link(lst):
     return dummy.next
 
 class Solution:
+    """
+    O(N)
+    O(1)
+    """
     def partition(self, head: ListNode, x: int) -> ListNode:
         beforeHead = ListNode(0)
         afterHead = ListNode(0)

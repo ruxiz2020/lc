@@ -1,4 +1,8 @@
 class Solution:
+    """
+    O(4 ** N)
+    O(N)
+    """
     def addOperators(self, num: str, target: int) -> list[str]:
         ans = []
 

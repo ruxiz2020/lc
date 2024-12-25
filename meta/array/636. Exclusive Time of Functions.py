@@ -2,6 +2,10 @@ from typing import List
 
 
 class Solution:
+    """
+    O(m)
+    O(n)
+    """
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
         ans = [0] * n
         stk = []
@@ -15,7 +19,7 @@ class Solution:
                     ans[stk[-1]] += ts - curr  # task not finished, end excluded
                 stk.append(fid)
                 curr = ts
-                print(stk)
+                print(stk) # [0] [0, 1]
             else:
                 fid = stk.pop()
                 ans[fid] += ts - curr + 1  # task finished, end included

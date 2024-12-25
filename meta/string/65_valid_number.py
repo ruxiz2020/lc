@@ -1,4 +1,8 @@
 class Solution(object):
+    """
+    O(N)
+    O(N)
+    """
     def isNumber(self, s):
         """
         :type s: str
@@ -44,4 +48,4 @@ num = "-90E3"
 
 ss = Solution()
 res = ss.isNumber(num)
-print(res)
+print(res) # True

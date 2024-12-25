@@ -2,6 +2,10 @@ import collections
 
 
 class Solution:
+    """
+    O (N * M) N: number of strings, M: avg length of each string
+    O (N * M)
+    """
     def groupStrings(self, strings: list[str]) -> list[list[str]]:
         keyToStrings = collections.defaultdict(list)
 

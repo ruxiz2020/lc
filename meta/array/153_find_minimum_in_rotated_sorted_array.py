@@ -3,6 +3,8 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+        O(log N)
+        O(1)
         """
         low, high = 0, len(nums) - 1
         while low < high:

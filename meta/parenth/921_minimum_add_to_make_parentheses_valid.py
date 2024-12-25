@@ -3,6 +3,8 @@ class Solution(object):
         """
         :type S: str
         :rtype: int
+        O(N)
+        O(N)
         """
         res = 0
         stack = []
