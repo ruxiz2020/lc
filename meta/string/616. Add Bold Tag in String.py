@@ -30,6 +30,7 @@ class Solution:
             # After checking all words, if boldEnd > i, it means the character at index i
             # is within a bolded substring.
             bold[i] = 1 if boldEnd > i else 0
+        print(bold) # [1, 1, 1, 0, 0, 0, 1, 1, 1]
 
         # Now we have a 'bold' array indicating which chars need bolding.
 

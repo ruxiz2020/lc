@@ -16,6 +16,9 @@ class TicTacToe:
                 0: No one wins.
                 1: Player 1 wins.
                 2: Player 2 wins.
+    initiate: O(N)
+    move: O(1)
+    space: O(N)
     """
 
     def move(self, row: int, col: int, player: int) -> int:

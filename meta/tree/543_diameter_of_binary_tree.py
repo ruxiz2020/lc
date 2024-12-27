@@ -38,41 +38,48 @@ def list_to_binary_tree(lst):
 
 class Solution:
     """
-    O(N)
-    O(H)
+    Computes the diameter of a binary tree.
+    The diameter is the length of the longest path between any two nodes in the tree.
+
+    Time Complexity: O(N)
+      - We perform a single DFS traversal, visiting each node once.
+    Space Complexity: O(H), where H is the height of the tree
+      - due to the recursion call stack. In the worst case of a skewed tree, H = N.
+
     """
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
-        # Initialize a variable to store the maximum diameter found during traversal.
+        # 'ans' will track the maximum diameter seen so far.
         ans = 0
 
-        # Helper function to calculate the maximum depth of a subtree.
-        # This function will also calculate the diameter as a side effect.
-        def maxDepth(root: TreeNode) -> int:
-            nonlocal ans  # Use the `ans` variable from the outer scope to store the diameter.
+        def maxDepth(node: TreeNode) -> int:
+            """
+            Returns the maximum depth of the subtree rooted at 'node'.
+            Also updates 'ans' to reflect the largest diameter encountered.
+            """
+            nonlocal ans  # Allows us to update 'ans' in this nested function
 
-            # Base case: If the node is None (leaf node's child), its depth is 0.
-            if not root:
+            # Base case: if there's no node, the depth is 0, and no path extends here.
+            if not node:
                 return 0
 
-            # Recursively calculate the maximum depth of the left subtree.
-            l = maxDepth(root.left)
+            # Recurse into left subtree to find its maximum depth
+            left_depth = maxDepth(node.left)
+            # Recurse into right subtree to find its maximum depth
+            right_depth = maxDepth(node.right)
 
-            # Recursively calculate the maximum depth of the right subtree.
-            r = maxDepth(root.right)
+            # Diameter through this node is the sum of left and right depths
+            # Compare with the global 'ans' and update if larger
+            ans = max(ans, left_depth + right_depth)
 
-            # Update the diameter at the current node.
-            # Diameter at the current node = sum of the depths of the left and right subtrees.
-            ans = max(ans, l + r)
+            # Return the maximum depth at this node: 1 (itself) plus the max of left/right
+            return 1 + max(left_depth, right_depth)
 
-            # Return the maximum depth of the subtree rooted at the current node.
-            # Add 1 to include the current node itself.
-            return 1 + max(l, r)
-
-        # Start the recursion from the root to calculate the diameter.
+        # Perform the DFS from the root, which will also compute 'ans'
         maxDepth(root)
 
-        # Return the maximum diameter found.
+        # 'ans' now holds the diameter of the binary tree
         return ans
+
 
 
 

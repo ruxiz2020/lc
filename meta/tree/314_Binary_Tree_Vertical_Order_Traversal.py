@@ -38,25 +38,67 @@ from collections import defaultdict
 from typing import Optional, List
 class Solution:
     """
-    O(NlogN)
-    O(H + N)
-    """
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        def dfs(root, depth, offset):
-            if root is None:
-                return
-            d[offset].append((depth, root.val))
-            dfs(root.left, depth + 1, offset - 1)
-            dfs(root.right, depth + 1, offset + 1)
+    This approach collects node values grouped by their 'column offset' (relative to the root).
+    We use a DFS that tracks two parameters for each node:
+      - depth: the vertical depth from the root
+      - offset: how far left/right from the root (root's offset = 0)
+        * offset - 1 when we go left
+        * offset + 1 when we go right
 
-        d = defaultdict(list)
+    Steps:
+    1) Run DFS starting from the root, collecting (depth, value) in a dict for each offset.
+    2) Sort the offsets to process columns from leftmost to rightmost.
+    3) For each offset, sort the collected values by depth (so that upper nodes appear first).
+    4) Extract the node values from each sorted list and append to the result.
+
+    Time Complexity: O(N log N)
+      - DFS visits each node once, O(N).
+      - Sorting by offset can be O(K log K), where K is the number of unique offsets (<= N).
+      - Sorting each column by depth also costs time, but typically still bounded by O(N log N) overall.
+
+    Space Complexity: O(H + N)
+      - O(N) for storing all node information in the dictionary.
+      - O(H) recursion stack in the worst case (H is the height of the tree).
+      - In a balanced tree H = O(log N), in worst case (skewed tree) H = O(N).
+    """
+
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        # A helper DFS function that populates the dictionary 'd' with
+        # key = offset (column index),
+        # value = list of (depth, node_value) tuples.
+        def dfs(node, depth, offset):
+            if node is None:
+                return
+            # Append the tuple (depth, node's value) to the list corresponding to 'offset'.
+            d[offset].append((depth, node.val))
+
+            # Go to left child: depth + 1, offset - 1
+            dfs(node.left, depth + 1, offset - 1)
+            # Go to right child: depth + 1, offset + 1
+            dfs(node.right, depth + 1, offset + 1)
+
+        from collections import defaultdict
+        d = defaultdict(list)  # Dictionary to hold column_offset -> list of (depth, value)
+
+        # Populate the dictionary using DFS, starting at offset = 0, depth = 0
         dfs(root, 0, 0)
+
+        # Prepare the final answer
         ans = []
-        print(d) #{0: [(0, 3), (2, 15)], -1: [(1, 9)], 1: [(1, 20)], 2: [(2, 7)]}
-        for _, v in sorted(d.items()): # O(Klog(k))
-            v.sort(key=lambda x: x[0]) # O(Llog(L))
-            ans.append([x[1] for x in v])
+
+        print(d)  # Debug print, e.g. {0: [(0, 3), (2, 15)], -1: [(1, 9)], 1: [(1, 20)], 2: [(2, 7)]}
+
+        # 1. Sort dictionary items by their key (offset).
+        # 2. Each value (list of (depth, val)) is then sorted by 'depth'.
+        # 3. Extract the node values (ignoring depth now that it's sorted).
+        for _, nodes in sorted(d.items()):  # Sort by offset
+            # Sort each list by depth so that upper nodes come before lower nodes.
+            nodes.sort(key=lambda x: x[0])  # Sort by x[0] which is the 'depth'
+            # Append just the node values (x[1]) to ans.
+            ans.append([x[1] for x in nodes])
+
         return ans
+
 
 
 # Convert the list to binary tree

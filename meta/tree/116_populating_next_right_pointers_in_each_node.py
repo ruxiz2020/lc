@@ -51,23 +51,41 @@ def print_tree(root):
 
 class Solution:
     """
-    O(N)
-    O(1)
+    Time Complexity: O(N), where N is the total number of nodes in the tree.
+    Space Complexity: O(1), we use constant extra space (pointers only).
     """
     def connect(self, node: 'Optional[Node]') -> 'Optional[Node]':
+        """
+        Given a perfect binary tree, populate each node's next pointer to
+        point to its next right node (or None if it is the rightmost node).
+        """
 
-        # nxt: start of next row
+        # cur: pointer to the current node in the current level
+        # nxt: pointer to the first node (leftmost) in the next level
         cur, nxt = node, node.left if node else None
 
+        # Continue until we run out of levels (nxt = None means no further level)
         while cur and nxt:
+            # Connect the left child to the right child
             cur.left.next = cur.right
+
+            # If there's a next sibling, connect current node's right child
+            # to the sibling's left child
             if cur.next:
                 cur.right.next = cur.next.left
 
+            # Move to the next sibling in the same level
             cur = cur.next
+
+            # If we've reached the end of the current level (cur == None),
+            # move down to the next level
             if not cur:
+                # cur now becomes the first node of the next level
                 cur = nxt
+                # nxt becomes the first node's left child in that new level
                 nxt = cur.left
+
+        # Return the root of the tree (now with next pointers set)
         return node
 
 lst = [1,2,3,4,5,6,7]

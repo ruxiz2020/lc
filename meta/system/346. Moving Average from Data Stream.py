@@ -2,6 +2,10 @@ import collections
 
 
 class MovingAverage:
+    """
+    O(1)
+    O(size)
+    """
     def __init__(self, size: int):
         self.size = size
         self.sum = 0

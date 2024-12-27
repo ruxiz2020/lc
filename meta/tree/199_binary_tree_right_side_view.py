@@ -54,27 +54,48 @@ def print_tree(root):
 
 class Solution:
     """
-    level order traversal
-    O(N)
-    O(H)
+    We perform a level-order traversal (BFS) of the tree. At each level,
+    we keep track of the rightmost non-null node encountered. That node's value
+    represents the tree's "right side" view at that level.
+
+    Time Complexity: O(N), where N is the total number of nodes,
+      since each node is enqueued and dequeued exactly once.
+    Space Complexity: O(H), where H is the maximum number of nodes at any level
+      (i.e., the width of the tree at its widest point). Typically, H <= N.
     """
     def rightSideView(self, root: TreeNode) -> List[int]:
+        # This list will store the rightmost value at each level
         res = []
+
+        # Use a queue (deque) for the BFS; start with root
         q = collections.deque([root])
 
+        # While there are nodes to process...
         while q:
+            # We'll track the rightmost node in this level
             rightSide = None
+
+            # Number of nodes in the current level
             qLen = len(q)
 
-            for i in range(qLen):
+            # Process all nodes in the current level
+            for _ in range(qLen):
                 node = q.popleft()
+
                 if node:
+                    # Track the latest (rightmost) node in this level
                     rightSide = node
+
+                    # Add children for the next level
                     q.append(node.left)
                     q.append(node.right)
+
+            # If we found a rightmost node at this level, add it to the result
             if rightSide:
                 res.append(rightSide.val)
+
         return res
+
 
 lst = [1,2,3,None,5,None,4]
 root = list_to_binary_tree(lst)

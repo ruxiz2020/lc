@@ -8,6 +8,10 @@ class TreeNode(object):
 
 # RECURSIVE DFS
 class Solution(object):
+    """
+    O(N)
+    O(log N)
+    """
     def maxDepth(self, root):
         """
         :type root: TreeNode

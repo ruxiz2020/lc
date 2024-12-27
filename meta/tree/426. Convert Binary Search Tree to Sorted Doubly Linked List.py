@@ -41,52 +41,61 @@ class Node:
 
 class Solution:
     """
-    O(N)
-    O(H)
+    Convert a BST to a sorted circular doubly linked list.
+
+    In-order traversal ensures nodes are processed in ascending order.
+    We maintain a 'prev' pointer to the previously visited node
+    and a 'head' pointer to the smallest (first) node in the sequence.
+
+    Time Complexity: O(N), where N is the number of nodes (each visited once).
+    Space Complexity: O(H), where H is the height of the tree (for the recursion stack).
+      In the worst case (skewed tree), H can be O(N). For a balanced tree, H = O(log N).
     """
+
     def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        # Helper function to perform in-order DFS traversal and link nodes.
-        def dfs(root):
-            if root is None:
-                # Base case: If the node is None, there's nothing to process.
-                return
-            nonlocal prev, head  # Use `prev` and `head` from the outer scope.
+        # A helper function to perform in-order DFS traversal and link nodes.
+        def dfs(node: 'Optional[Node]'):
+            if node is None:
+                return  # Base case: nothing to process if the node is None.
 
-            # Recursively process the left subtree.
-            dfs(root.left)
+            nonlocal prev, head  # Allows access/modification of 'prev' & 'head' defined outside this function.
 
-            # If `prev` exists, link the previous node to the current node.
+            # 1. Traverse the left subtree (in-order).
+            dfs(node.left)
+
+            # 2. Link the current node with the 'prev' node.
             if prev:
-                prev.right = root  # Set the right pointer of the previous node to the current node.
-                root.left = prev   # Set the left pointer of the current node to the previous node.
+                prev.right = node  # 'prev' node's right pointer goes to the current 'node'.
+                node.left = prev   # Current 'node' left pointer goes back to 'prev'.
             else:
-                # If `prev` is None, this is the first node in in-order traversal.
-                # Set `head` to the current node (smallest value in the BST).
-                head = root
+                # If 'prev' is None, it means this is the *first* node in in-order traversal.
+                head = node  # This node will be the head (smallest) in the doubly-linked list.
 
-            # Update `prev` to the current node before moving to the right subtree.
-            prev = root
+            # 3. Update 'prev' to the current node before traversing right subtree.
+            prev = node
 
-            # Recursively process the right subtree.
-            dfs(root.right)
+            # 4. Traverse the right subtree (in-order).
+            dfs(node.right)
 
-        # Edge case: If the root is None, return None (empty tree).
-        if root is None:
+        # Handle edge case of an empty tree.
+        if not root:
             return None
 
-        # Initialize `head` (start of the linked list) and `prev` (previous node).
+        # 'head' will eventually point to the smallest node (start of the list).
+        # 'prev' tracks the previously visited node in the in-order sequence.
         head = prev = None
 
-        # Perform in-order traversal and link nodes to form the doubly linked list.
+        # Perform the in-order DFS traversal to link nodes linearly.
         dfs(root)
 
-        # After traversal, link the last node (`prev`) with the first node (`head`)
-        # to make the linked list circular.
+        # Finally, connect the last node ('prev') with the first node ('head')
+        # to make the list circular.
         prev.right = head
         head.left = prev
 
-        # Return the head of the doubly linked list.
+        # Return the head (start) of the circular doubly linked list.
         return head
+
 
 
 

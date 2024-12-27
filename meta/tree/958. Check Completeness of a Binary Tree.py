@@ -48,7 +48,7 @@ class Solution(object):
         if root is None:
             return True
         queue.append(root)
-        flag = False
+        flag = False # default: row is complete
         while queue:
             node = queue.pop(0)
             if flag is False:
