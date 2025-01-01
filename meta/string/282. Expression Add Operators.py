@@ -15,7 +15,6 @@ class Solution:
 
             for i in range(start, len(num)):
                 if i > start and num[start] == '0':
-
                     print(f"i {i}")
                     return
                 s = num[start:i + 1]

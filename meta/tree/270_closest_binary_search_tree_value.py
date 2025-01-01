@@ -45,14 +45,6 @@ class Solution:
 
         # Traverse the BST from the root downward.
         while root:
-            # Update 'res' if the current node's value is closer to 'target'
-            # than the previously recorded 'res'.
-            #
-            # We use a custom 'key' in min() to compare two values (res, root.val)
-            # by how close they are to 'target'.
-            #   - abs(target - x) measures the distance from 'target'.
-            #   - x is used as a tiebreaker if distances are equal
-            #     (for deterministic behavior, though not strictly required here).
             res = min(res, root.val, key=lambda x: (abs(target - x), x))
 
             # If 'target' is less than the current node's value,

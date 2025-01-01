@@ -19,13 +19,8 @@ class Solution:
             if not s:
                 return None
 
-            # Find the position of the first '(' character.
-            # This '(' indicates where the children descriptions start.
             p = s.find('(')
-
-            # If there is no '(', it means there are no children and 's' is just a node value.
             if p == -1:
-                # Create a node with the integer value of the substring and return it.
                 return TreeNode(int(s))
 
             # Create the root node using the substring before the first '(' as its value.
@@ -34,16 +29,11 @@ class Solution:
             # 'start' keeps track of where we started parsing children.
             start = p
 
-            # 'cnt' will be used to track the balance of parentheses.
-            # When it returns to 0, we've reached the end of a child subtree description.
             cnt = 0
-
             # Iterate through the substring from the first '(' to the end.
             for i in range(p, len(s)):
-                # If we encounter '(', increment the count.
                 if s[i] == '(':
                     cnt += 1
-                # If we encounter ')', decrement the count.
                 elif s[i] == ')':
                     cnt -= 1
 
@@ -54,8 +44,6 @@ class Solution:
                     if start == p:
                         # Debug prints to show the substring for the left child.
                         print("left" + s[start + 1 : i])
-                        print(start, p, i)
-
                         # Recursively parse the substring inside these parentheses for the left child.
                         root.left = dfs(s[start + 1 : i])
 
@@ -64,8 +52,6 @@ class Solution:
                     else:
                         # Debug prints to show the substring for the right child.
                         print("right" + s[start + 1 : i])
-                        print(start, p, i)
-
                         # Recursively parse the substring for the right child.
                         root.right = dfs(s[start + 1 : i])
 

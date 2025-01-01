@@ -57,7 +57,6 @@ class Solution:
         def dfs(node: 'Optional[Node]'):
             if node is None:
                 return  # Base case: nothing to process if the node is None.
-
             nonlocal prev, head  # Allows access/modification of 'prev' & 'head' defined outside this function.
 
             # 1. Traverse the left subtree (in-order).

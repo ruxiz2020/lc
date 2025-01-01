@@ -24,4 +24,4 @@ print("input: x = 2.00000, n = 10")
 
 ss = Solution()
 res = ss.myPow(x, n)
-print("res: " + str(res))
+print("res: " + str(res)) # 1024

@@ -10,9 +10,6 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
-
-        print(nums)  # Debug print to see the input array
-
         # total_sum will be our running 'balance' or cumulative sum.
         # We treat 0 as -1 and 1 as +1.
         total_sum = 0
@@ -43,7 +40,7 @@ class Solution:
             else:
                 # Otherwise, record the first time we see this sum with index i.
                 index_map[total_sum] = i
-
+        # {0: -1, -1: 0, 1: 4, 2: 7}
         print(index_map)  # Debug print to see final state of index_map, e.g. {0: -1, -1: 0, 1: 4}
 
         return res

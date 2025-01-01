@@ -37,7 +37,6 @@ class Solution:
         """
         Returns the size of the largest BST subtree in the given binary tree.
         """
-
         def dfs(node: 'TreeNode') -> T:
             """
             Perform a post-order DFS. For each node, return a T object that includes:
@@ -45,7 +44,6 @@ class Solution:
               - size: the size of the subtree if it's a valid BST; otherwise,
                       the largest BST subtree size found in the children.
             """
-
             # Base case: If the node is None, it's a valid BST by definition (size=0).
             if not node:
                 return T(math.inf, -math.inf, 0)

@@ -38,29 +38,28 @@ def print_tree(tree):
 
 class Solution(object):
     """
-    O(H)
-    O(1)
+    O(H) time complexity where H is the height of the tree.
+    O(1) space complexity.
     """
-
     def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode
         :type p: TreeNode
         :type q: TreeNode
         :rtype: TreeNode
-        log(n)
         """
-        current = root
-        while root:
-
-            if root.val > p.val and root.val > q.val:
-                root = root.left
-            elif root.val < p.val and root.val < q.val:
-                root = root.right
+        current = root  # Start traversal from the root node
+        while current:
+            # If both p and q are smaller than current, go left
+            if current.val > p.val and current.val > q.val:
+                current = current.left
+            # If both p and q are larger than current, go right
+            elif current.val < p.val and current.val < q.val:
+                current = current.right
+            # Found the split point (current is between p and q)
             else:
-                break
+                return current
 
-        return root
 
 
 if __name__ == '__main__':

@@ -8,7 +8,6 @@ class TreeNode:
 
 class Solution:
     """
-
     O(N)
     O(H)
     """

@@ -8,6 +8,10 @@ class Node:
 
 
 class Solution:
+    """
+    O(n)
+    O(1)
+    """
     def insert(self, head: 'Optional[Node]', insertVal: int) -> 'Node':
         node = Node(insertVal)
         if head is None:

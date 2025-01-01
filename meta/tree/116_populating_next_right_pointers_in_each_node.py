@@ -59,7 +59,6 @@ class Solution:
         Given a perfect binary tree, populate each node's next pointer to
         point to its next right node (or None if it is the rightmost node).
         """
-
         # cur: pointer to the current node in the current level
         # nxt: pointer to the first node (leftmost) in the next level
         cur, nxt = node, node.left if node else None

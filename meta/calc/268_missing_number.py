@@ -2,10 +2,14 @@ from typing import List
 
 
 class Solution:
+    """
+    O(n)
+    O(1)
+    """
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
         expected_sum = n * (n + 1) // 2
-        actual_sum = sum(nums)
+        actual_sum = sum(nums) # O(n)
         return expected_sum - actual_sum
 
 
