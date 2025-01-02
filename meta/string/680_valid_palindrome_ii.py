@@ -1,5 +1,16 @@
 class Solution:
     """
+    This code checks if a given string s can become a palindrome by removing 
+    at most one character, using two pointers (l and r) to compare characters 
+    from both ends.
+
+    If a mismatch is found between s[l] and s[r], it verifies whether skipping 
+    either the character at l or at r forms a valid palindrome by slicing the 
+    string and comparing it to its reverse.
+
+    The algorithm runs in 
+    O(N) time and uses 
+    O(N) space for the string slicing operations during palindrome checks.
     O(N)
     O(N)
     """

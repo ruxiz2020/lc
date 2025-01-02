@@ -24,7 +24,17 @@ class T:
 
 class Solution:
     """
-    Finds the size of the largest subtree that is a valid BST.
+    This code calculates the size of the largest subtree within 
+    a binary tree that satisfies the properties of a Binary Search Tree (BST), 
+    using a post-order Depth-First Search (DFS) approach to 
+    validate BST conditions at each node and propagate information 
+    about subtree size, minimum, and maximum values.
+
+    During the traversal, it checks whether the current node forms 
+    a valid BST with its left and right subtrees; 
+    if valid, it updates the size of the BST, otherwise, 
+    it carries forward the maximum size of the largest valid BST 
+    found in the child subtrees.
 
     Time Complexity: O(N), where N is the number of nodes in the tree,
       since we perform a post-order DFS visit of each node exactly once.

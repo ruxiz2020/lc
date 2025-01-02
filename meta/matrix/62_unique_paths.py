@@ -18,6 +18,7 @@ class Solution01(object):
             for i in range(n, 0, -1):
                 mom *= i
             return son / mom
+        
         return permutation(total, min(v, total - v))
 
 

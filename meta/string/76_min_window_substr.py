@@ -47,4 +47,4 @@ if __name__ == '__main__':
 
     ss = Solution()
     res = ss.minWindow(s, t)
-    print(res)
+    print(res) # BANC

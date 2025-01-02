@@ -47,6 +47,19 @@ from collections import deque
 
 class Solution:
     """
+    This code implements a Breadth-First Search (BFS) to find the shortest path 
+    in a binary matrix from the top-left corner to the bottom-right corner, 
+    where 0 represents a valid path and 1 represents a blocked cell. 
+    It marks visited cells in the grid and maintains a dictionary to reconstruct 
+    the path to each cell.
+
+    Starting from the top-left, it iteratively explores all valid neighboring cells 
+    (up to 8 directions) level by level, updating the path and incrementing the path 
+    length until it either reaches the target or exhausts all possible paths.
+
+    If a path to the bottom-right corner exists, it returns the path length and the 
+    full path taken; otherwise, it returns -1 and an empty list to indicate no path 
+    was found.
     O(N ^ 4)
     O(N ^ 4)
     """

@@ -1,14 +1,18 @@
 class Solution:
     """
-    This solution checks whether a string s can be transformed into a palindrome by
-    removing at most k characters. The core idea is:
+    This code determines whether a string s can be transformed into a 
+    palindrome by removing at most k characters, using the 
+    Longest Palindromic Subsequence (LPS) to calculate the minimum number of characters 
+    that need to be removed.
 
-    - Find the length of the longest palindromic subsequence (LPS) of s.
-    - The number of characters we need to remove to turn s into that palindrome
-      is len(s) - LPS_length.
-    - If len(s) - LPS_length <= k, it means we can remove up to k characters
-      and obtain a palindrome, so return True; otherwise False.
+    The _longestPalindromeSubseq function employs a dynamic programming approach, 
+    where dp[i][j] stores the LPS length for the substring s[i..j], 
+    building up results from smaller substrings to the full string by 
+    considering character matches and mismatches.
 
+    The main function compares the required removals (len(s) - LPS_length) 
+    to k and returns True if they are within the allowable limit, 
+    with a time complexity of 
     Time Complexity: O(n^2) due to the dynamic programming LPS computation.
     Space Complexity: O(n^2) for the dp table.
     """

@@ -8,6 +8,21 @@ class TreeNode:
 
 class Solution:
     """
+    This code checks whether a binary tree has a root-to-leaf path 
+    where the sum of the node values equals a given target summ,
+      using a recursive approach to traverse the tree.
+
+    At each node, it subtracts the current node's value from the 
+    target sum and recursively checks both the left and right subtrees, 
+    returning True if a valid path is found or False if the 
+    traversal reaches a null node or no valid path exists.
+
+    The time complexity is 
+    O(N), where 
+    N is the number of nodes in the tree, as each node is visited once, 
+    and the space complexity is 
+    O(H), where 
+    H is the height of the tree, due to the recursion stack.
     O(N)
     O(H)
     """

@@ -28,9 +28,21 @@ def list_to_bst(lst):
 
 class Solution:
     """
-    This solution searches a binary search tree (BST) to find the value
-    closest to the given target. At each node, it compares the current node's
-    value to the best known answer so far (res) and updates if it finds a closer match.
+    This code finds the value in a Binary Search Tree (BST) 
+    closest to a given target by traversing the tree from the root, 
+    comparing each node's value to the target, and updating the result (res) 
+    if a closer match is found.
+
+    It leverages the properties of a BST by moving left if the target 
+    is smaller than the current node's value and right if the target is larger, 
+    thus narrowing the search efficiently.
+
+    The algorithm runs in 
+    O(H) time, where 
+    H is the height of the tree (
+    O(logN) for a balanced tree and 
+    O(N) for a skewed tree), and it uses 
+    O(1) space as it operates iteratively with only a few variables.
 
     Time Complexity: O(H) on average,
       where H is the height of the BST (often O(log N) if the tree is balanced).

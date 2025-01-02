@@ -1,4 +1,19 @@
 class Solution:
+    """
+    This code calculates the minimum number of insertions needed to balance a string 
+    of parentheses, where every ( must be matched with exactly two ) in the correct order. 
+    It iterates through the string, maintaining a balance to track unmatched opening 
+    parentheses and incrementing insertions_needed for unmatched or extra closing 
+    parentheses.
+
+    During the traversal, it handles consecutive ) pairs efficiently and ensures 
+    that unmatched ( are accounted for by requiring two additional ) for each unmatched 
+    opening parenthesis.
+
+    At the end, any leftover unmatched ( are balanced with 2 insertions each, 
+    and the final result is returned as the total number of insertions needed 
+    to make the string valid.
+    """
     def min_insertions(self, s: str) -> int:
         # 'balance' keeps track of the balance of the parentheses
         # 'insertions_needed' will be the answer, representing the minimum insertions needed

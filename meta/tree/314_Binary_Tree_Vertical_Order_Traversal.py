@@ -38,18 +38,16 @@ from collections import defaultdict
 from typing import Optional, List
 class Solution:
     """
-    This approach collects node values grouped by their 'column offset' (relative to the root).
-    We use a DFS that tracks two parameters for each node:
-      - depth: the vertical depth from the root
-      - offset: how far left/right from the root (root's offset = 0)
-        * offset - 1 when we go left
-        * offset + 1 when we go right
+    This code performs a vertical order traversal of a binary tree by using 
+    a DFS approach to group node values by their column offsets, 
+    where the offset is adjusted relative to the root 
+    (left child decreases offset, right child increases it).
 
-    Steps:
-    1) Run DFS starting from the root, collecting (depth, value) in a dict for each offset.
-    2) Sort the offsets to process columns from leftmost to rightmost.
-    3) For each offset, sort the collected values by depth (so that upper nodes appear first).
-    4) Extract the node values from each sorted list and append to the result.
+    During the traversal, node values and their depths are stored 
+    in a dictionary keyed by offset, and the dictionary is later 
+    processed by sorting the offsets (columns) and sorting 
+    node values within each column by depth to ensure 
+    upper nodes appear before lower nodes.
 
     Time Complexity: O(N log N)
       - DFS visits each node once, O(N).

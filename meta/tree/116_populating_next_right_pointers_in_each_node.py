@@ -1,4 +1,7 @@
 # Definition for a Node.
+from typing import Optional
+
+
 class Node:
     def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
         self.val = val
@@ -51,7 +54,18 @@ def print_tree(root):
 
 class Solution:
     """
-    Time Complexity: O(N), where N is the total number of nodes in the tree.
+    This code connects each node in a perfect binary tree to its 
+    next right node by iterating through levels, using pointers 
+    to traverse and set connections without additional space for a queue or recursion.
+
+    It starts from the root node, connects left and right children, 
+    and bridges the right child of one node to the left child of its next sibling, 
+    moving to the next level once all nodes at the current level are processed.
+
+    The time complexity is 
+    O(N), as every node is visited once, and the space complexity is 
+    O(1), as the traversal uses only a few pointers without additional data structures.
+        Time Complexity: O(N), where N is the total number of nodes in the tree.
     Space Complexity: O(1), we use constant extra space (pointers only).
     """
     def connect(self, node: 'Optional[Node]') -> 'Optional[Node]':

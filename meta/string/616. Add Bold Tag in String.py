@@ -1,5 +1,22 @@
 class Solution:
     """
+    This code identifies substrings of the input string s that match any word 
+    in the list words and wraps these substrings in <b></b> tags, 
+    using a bold array to track which characters should be bolded.
+
+    It iterates over the string, marking ranges of bolded characters whenever 
+    a word from words matches a substring starting at the current position, 
+    and then constructs the output string by appending bolded or non-bolded segments 
+    accordingly.
+
+    The algorithm handles overlapping and continuous bolded ranges efficiently 
+    by extending the range (boldEnd) and ensures minimal <b></b> tags in the output, 
+    with time complexity 
+    O(n⋅k⋅l), where 
+    k is the number of words, 
+    l is the average word length, and 
+    n is the length of the string.
+
     O(n * k * l) k: number of words, l: avg length of words
     O(n)
     """

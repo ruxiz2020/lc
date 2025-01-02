@@ -38,8 +38,13 @@ def list_to_binary_tree(lst):
 
 class Solution:
     """
-    Computes the diameter of a binary tree.
-    The diameter is the length of the longest path between any two nodes in the tree.
+    This code computes the diameter of a binary tree, defined as the longest path 
+    between any two nodes, by performing a single Depth-First Search (DFS) 
+    to calculate the maximum depth of the left and right subtrees at each node.
+
+    During the traversal, it updates a global variable ans with the maximum diameter 
+    encountered so far, which is the sum of the left and right subtree depths 
+    at each node, ensuring the result includes the longest path in the tree.
 
     Time Complexity: O(N)
       - We perform a single DFS traversal, visiting each node once.

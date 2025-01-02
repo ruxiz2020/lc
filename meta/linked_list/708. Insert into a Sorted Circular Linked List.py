@@ -1,5 +1,8 @@
 
 # Definition for a Node.
+from typing import Optional
+
+
 class Node:
     def __init__(self, val=None, next=None):
         self.val = val

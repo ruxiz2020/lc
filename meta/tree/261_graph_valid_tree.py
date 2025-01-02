@@ -1,14 +1,20 @@
 class Solution:
     """
-    Checks if an undirected graph is a valid tree.
+    This code checks whether a given undirected graph is a valid tree by 
+    using Depth-First Search (DFS) to ensure the graph is connected 
+    (all nodes are reachable from a starting node) and acyclic (no cycles exist).
 
-    Approach:
-    1. Build an adjacency list from the edges.
-    2. Perform a DFS from node 0.
-       - If we revisit a visited node (detect a cycle), return False.
-       - Otherwise, keep exploring.
-    3. After the DFS, if the number of visited nodes equals n (i.e., all nodes are reachable)
-       and no cycle was found, then it is a valid tree.
+    It first builds an adjacency list to represent the graph, 
+    then recursively traverses the graph from node 0, 
+    marking nodes as visited and checking for cycles by avoiding 
+    revisiting already visited nodes, except the immediate parent.
+
+    The algorithm returns True if the DFS visits all nodes 
+    exactly once (ensuring connectivity) and finds no cycles; it runs in 
+    O(N+E) time and uses 
+    O(N) space for the adjacency list and visited set, where 
+    N is the number of nodes and 
+    E the number of edges.
 
     Time Complexity: O(N)
       - Building the adjacency list and traversing the graph is O(N + E) where E ~ N - 1 for a tree.

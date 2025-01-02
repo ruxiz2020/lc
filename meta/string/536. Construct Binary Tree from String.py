@@ -8,6 +8,17 @@ class TreeNode:
 
 class Solution:
     """
+    This code parses a string representation of a binary tree to construct the tree, 
+    using a recursive depth-first search (DFS) approach where the substring 
+    before the first ( is the root node, and subsequent segments in parentheses 
+    represent left and right subtrees.
+
+    The function tracks parentheses using a counter to identify complete segments 
+    for each child subtree, then recursively parses these segments to construct 
+    the left and right child nodes of the current root.
+
+    After processing the entire string, the function returns the root of the 
+    constructed tree.
     O(N): The function processes each character of the input string at most once.
     O(H): The space complexity is related to the height of the tree formed, due to recursion.
     """

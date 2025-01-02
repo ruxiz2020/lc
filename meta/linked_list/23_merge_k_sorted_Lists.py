@@ -1,6 +1,6 @@
 import heapq
 
-from rpds import List
+from typing import List
 
 
 # Definition for singly-linked list.

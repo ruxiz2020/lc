@@ -39,6 +39,20 @@ def list_to_binary_tree(lst):
 
 class Solution:
     """
+    This code calculates the sum of all root-to-leaf numbers in a binary tree, 
+    where each path from the root to a leaf node forms a number by 
+    concatenating the values of the nodes along the path.
+
+    It uses a Depth-First Search (DFS) approach, carrying a running "path value" 
+    down the tree, updating the total sum (ans) when a leaf node is reached, 
+    and recursively traversing left and right subtrees to accumulate the sums.
+
+    The algorithm has a time complexity of 
+    O(N), where 
+    N is the number of nodes in the tree, as it visits each node once, 
+    and a space complexity of 
+    O(H), where 
+    H is the height of the tree, due to the recursion stack.
     O(N)
     O(H)
     """
