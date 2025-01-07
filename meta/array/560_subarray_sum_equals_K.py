@@ -4,6 +4,15 @@ from typing import List
 
 class Solution:
     """
+    This code calculates the number of subarrays in an array nums that 
+    sum to a given value 
+    k by using a prefix sum and a hash map (counter) to track the 
+    frequency of previously seen prefix sums.
+
+    For each element in the array, it updates the running prefix sum, 
+    checks if the difference between the current prefix and 
+    k has been seen before (indicating a valid subarray), and increments 
+    the result (ans) accordingly while updating the counter.
     O(N)
     O(N)
     """

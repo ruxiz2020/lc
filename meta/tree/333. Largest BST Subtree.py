@@ -81,3 +81,27 @@ class Solution:
         # Begin DFS from the root, and return the 'size' field indicating the largest BST subtree.
         return dfs(root).size
 
+
+
+# Example Tree:
+#        10
+#       /  \
+#      5    15
+#     / \   / \
+#    1   8 12  20
+
+def create_tree():
+    root = TreeNode(10)
+    root.left = TreeNode(5)
+    root.right = TreeNode(15)
+    root.left.left = TreeNode(1)
+    root.left.right = TreeNode(8)
+    root.right.left = TreeNode(12)
+    root.right.right = TreeNode(20)
+    return root
+
+# Test the Solution
+tree = create_tree()
+solution = Solution()
+result = solution.largestBSTSubtree(tree)
+print("Size of the largest BST subtree:", result)  # Expected Output: 7 (entire tree is a BST)

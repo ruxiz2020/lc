@@ -1,4 +1,18 @@
 class Solution:
+    """
+    This code finds the longest subarray containing at most 
+    k zeros in a binary array nums using the sliding window technique,
+    where two pointers (l and r) define the window and dynamically 
+    adjust as the count of zeros exceeds 
+
+    When a zero is encountered, 
+    k is decremented, and if 
+    k becomes negative, the left pointer (l) is advanced to shrink 
+    the window until the number of zeros within the window is 
+    ≤k, ensuring the constraint is maintained.
+    O(N)
+    O(1)
+    """
     def longestOnes(self, nums: list[int], k: int) -> int:
         ans = 0
 

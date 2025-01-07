@@ -90,3 +90,57 @@ class Solution:
         # to 'up' in our dirs array).
         dfs(0, 0, 0)
 
+
+
+
+class MockRobot:
+    def __init__(self, room, start_row, start_col):
+        """
+        :param room: 2D grid representing the room where 1 is open and 0 is blocked.
+        :param start_row: Initial row of the robot.
+        :param start_col: Initial column of the robot.
+        """
+        self.room = room
+        self.position = (start_row, start_col)
+        self.direction = 0  # 0: up, 1: right, 2: down, 3: left
+        self.cleaned = set()
+
+    def move(self):
+        directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # up, right, down, left
+        next_row = self.position[0] + directions[self.direction][0]
+        next_col = self.position[1] + directions[self.direction][1]
+        if 0 <= next_row < len(self.room) and 0 <= next_col < len(self.room[0]) and self.room[next_row][next_col] == 1:
+            self.position = (next_row, next_col)
+            return True
+        return False
+
+    def turnLeft(self):
+        self.direction = (self.direction - 1) % 4
+
+    def turnRight(self):
+        self.direction = (self.direction + 1) % 4
+
+    def clean(self):
+        self.cleaned.add(self.position)
+
+
+# Test Environment
+room = [
+    [1, 1, 1, 1],
+    [1, 0, 0, 1],
+    [1, 1, 1, 1]
+]
+
+# Starting position (1, 3)
+robot = MockRobot(room, 1, 3)
+
+# Test the Solution
+solution = Solution()
+solution.cleanRoom(robot)
+
+# Verify cleaned cells
+print("Cleaned cells:", robot.cleaned)
+
+# Expected Output:
+# Cleaned cells should include all reachable cells in the room:
+# {(1, 3), (0, 3), (0, 2), (0, 1), (0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (2, 3), (1, 1)}

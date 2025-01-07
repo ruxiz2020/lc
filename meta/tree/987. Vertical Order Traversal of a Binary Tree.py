@@ -68,68 +68,25 @@ class Solution:
 
 
 
-# -----------------------------
-# HELPER CODE FOR TESTING
-# -----------------------------
-def build_tree_from_list(lst, index=0):
+def create_tree():
     """
-    Build a binary tree from a list (like a level-order serialization).
-    None values represent missing children.
-
-    :param lst: List of values or None, representing the level-order traversal of a binary tree.
-    :param index: Current index in the list.
-    :return: Root of the binary tree.
+    Create the following binary tree:
+            3
+           / \
+          9  20
+            /  \
+           15   7
     """
-    if index >= len(lst) or lst[index] is None:
-        return None
-
-    root = TreeNode(lst[index])
-    # For a level-order list, left child index is 2 * index + 1, right child is 2 * index + 2
-    root.left = build_tree_from_list(lst, 2 * index + 1)
-    root.right = build_tree_from_list(lst, 2 * index + 2)
+    root = TreeNode(3)
+    root.left = TreeNode(9)
+    root.right = TreeNode(20)
+    root.right.left = TreeNode(15)
+    root.right.right = TreeNode(7)
     return root
 
-def print_test_result(description, root_list):
-    """
-    Build a tree from `root_list`, call verticalTraversal on it,
-    and print the result.
-    """
-    root = build_tree_from_list(root_list)
-    solution = Solution()
-    result = solution.verticalTraversal(root)
-    print(description)
-    print("Tree (level-order):", root_list)
-    print("Vertical Traversal:", result)
-    print("-" * 50)
-
-# -----------------------------
-# TEST CASES
-# -----------------------------
 if __name__ == "__main__":
-    # 1) Example with a small balanced tree
-    print_test_result("Test Case 1", [3, 9, 20, None, None, 15, 7])
-    # Expected vertical traversal might look like [[9],[3,15],[20],[7]]
-
-    # 2) A slightly more complex tree
-    # Level-order: [1,2,3,4,6,5,7,None,None,None,None,None,None,None,8]
-    # This tree structure is:
-    #           1
-    #         /   \
-    #        2     3
-    #       / \   / \
-    #      4   6 5   7
-    #                 \
-    #                  8
-    # (Some internal Nones for missing children in the array representation.)
-    print_test_result("Test Case 2", [1,2,3,4,6,5,7,None,None,None,None,None,None,None,8])
-    # Expected output structure could be something like:
-    # [[4],[2],[1,6,5],[3],[7],[8]]
-
-    # 3) Single node tree
-    print_test_result("Test Case 3", [42])
-    # Expected vertical traversal: [[42]]
-
-    # 4) Empty tree
-    # If you pass an empty list, the tree is None
-    print_test_result("Test Case 4 (empty tree)", [])
-    # Expected vertical traversal: []
+    tree = create_tree()
+    solution = Solution()
+    result = solution.verticalTraversal(tree)
+    print("Vertical traversal of the tree:", result)
+    # Expected output: [[9],[3,15],[20],[7]]

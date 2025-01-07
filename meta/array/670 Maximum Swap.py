@@ -1,25 +1,20 @@
-#!/usr/bin/python3
-"""
-Given a non-negative integer, you could swap two digits at most once to get the
-maximum valued number. Return the maximum valued number you could get.
-
-Example 1:
-Input: 2736
-Output: 7236
-Explanation: Swap the number 2 and the number 7.
-Example 2:
-Input: 9973
-Output: 9973
-Explanation: No swap.
-Note:
-The given number is in the range [0, 108]
-"""
 
 
 class Solution:
-    """O(n)
-    O(N)"""
+    """
+    This code finds the maximum number you can get by swapping 
+    two digits of the integer num at most once.
 
+    It traverses the digits from right to left to maintain 
+    a stack of rightmost occurrences of larger digits, then moves from 
+    left to right to find the first digit that can be increased by 
+    swapping with one of those larger digits on the right.
+
+    The algorithm runs in O(n) time and uses O(n) space for the stack, where 
+    n is the number of digits in num.
+    O(n)
+    O(N)
+    """
     def maximumSwap(self, num: int) -> int:
         """
         stk maintain a increasing stack from right to left
@@ -28,7 +23,7 @@ class Solution:
         nums = list(str(num))
         n = len(nums)
         for i in range(n - 1, -1, -1):  # find the largest num from the right
-            if stk and stk[-1][1] >= nums[i]:  # only keep the rightmost duplicate
+            if stk and stk[-1][1] >= nums[i]:   
                 continue
             stk.append((i, nums[i]))
         print(stk)  # [(3, '3'), (2, '7'), (1, '9')]

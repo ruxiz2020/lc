@@ -4,6 +4,16 @@ from typing import List
 
 class Solution:
     '''monotonic decreasing order queue
+    This code finds the maximum value within each sliding window of size 
+    k in an array by keeping a monotonic decreasing deque, where smaller 
+    elements are removed from the back to maintain descending order.
+
+    The element at the front of the deque is the largest in the current window, 
+    and any index that falls out of the window’s range is removed from the front.
+    
+    The time complexity is 
+    O(n) because each element is pushed and popped from the deque at most once, 
+    and the space complexity is O(k) for storing up to k elements in the deque.
     O(N)
     O(k)'''
 

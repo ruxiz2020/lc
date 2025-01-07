@@ -2,12 +2,14 @@
 class Solution(object):
     def checkSubarraySum(self, nums, k):
         """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
+        This code checks if there is a contiguous subarray whose sum is a multiple of 
+        k by maintaining a DP array where each element stores all 
+        possible subarray sums ending at that position.
 
-        This function tries to determine if there exists a subarray (of length >= 2)
-        in 'nums' such that the sum of its elements is a multiple of 'k'.
+        At each step, it takes every sum from the previous position, 
+        adds the current element, and checks if the new sum is divisible by k
+        However, because each position can accumulate many sums, the approach can reach
+        O(2^N) in both time and space in the worst case.
 
         Time Complexity (as written here): O(2^N) in the worst case
         Space Complexity: O(2^N) in the worst case

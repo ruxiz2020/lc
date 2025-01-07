@@ -22,6 +22,32 @@ class Solution(object):
         return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 
 
+
+
+# Example Tree:
+#        3
+#       / \
+#      9   20
+#          /  \
+#         15   7
+
+def create_tree():
+    root = TreeNode(3)
+    root.left = TreeNode(9)
+    root.right = TreeNode(20)
+    root.right.left = TreeNode(15)
+    root.right.right = TreeNode(7)
+    return root
+
+# Test the Solution
+tree = create_tree()
+solution = Solution()
+result = solution.maxDepth(tree)
+print("Maximum depth of the tree:", result)  # Expected Output: 3
+
+
+
+
 # ITERATIVE DFS
 class Solution:
     """

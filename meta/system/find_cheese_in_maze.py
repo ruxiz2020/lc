@@ -57,3 +57,54 @@ class Mouse:
             Direction.RIGHT: Direction.LEFT
         }
         return opposites[direction]
+
+
+
+
+
+class MockMouse(Mouse):
+    def __init__(self, grid, start_row, start_col):
+        """
+        :param grid: 2D grid where 1 represents cheese, 0 represents free space, -1 represents a wall.
+        :param start_row: Starting row position of the mouse.
+        :param start_col: Starting column position of the mouse.
+        """
+        self.grid = grid
+        self.position = (start_row, start_col)
+        self.visited = set()
+
+    def move(self, direction):
+        directions = {
+            Direction.UP: (-1, 0),
+            Direction.DOWN: (1, 0),
+            Direction.LEFT: (0, -1),
+            Direction.RIGHT: (0, 1),
+        }
+        next_row = self.position[0] + directions[direction][0]
+        next_col = self.position[1] + directions[direction][1]
+
+        if 0 <= next_row < len(self.grid) and 0 <= next_col < len(self.grid[0]) and self.grid[next_row][next_col] != -1:
+            self.position = (next_row, next_col)
+            return True
+        return False
+
+    def has_cheese(self):
+        row, col = self.position
+        return self.grid[row][col] == 1
+
+
+# Test Environment
+grid = [
+    [0, 0, 0, 0],
+    [0, -1, -1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 0]
+]
+
+# Mouse starts at (0, 0)
+mock_mouse = MockMouse(grid, 0, 0)
+
+# Test the Solution
+result = mock_mouse.get_cheese()
+print("Found cheese:", result)  # Expected Output: True
+print("Mouse position after finding cheese:", mock_mouse.position)  # Expected: (2, 2)

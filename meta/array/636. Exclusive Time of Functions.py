@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     """
+    This code calculates the exclusive execution time for each function in a system, 
+    given a list of logs representing function calls and returns, 
+    using a stack to track the currently active function and its start time.
+
+    When a function starts, the time spent on the previously active function 
+    (if any) is updated in the ans array, and the new function is added to the stack. 
+    When a function ends, its total time is calculated (including the endpoint), 
+    removed from the stack, and the current time is updated.
     O(m)
     O(n)
     """

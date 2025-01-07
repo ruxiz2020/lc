@@ -38,61 +38,24 @@ class HitCounter:
 
 # --- Test Code -------------------------------------------------------------
 class TestHitCounter(unittest.TestCase):
-    def test_no_hits_initially(self):
-        hc = HitCounter()
-        self.assertEqual(hc.getHits(1), 0, "Initially, no hits should be recorded.")
+    def test_hit_counter(self):
+        hit_counter = HitCounter()
 
-    def test_simple_hits(self):
-        hc = HitCounter()
-        # Record a couple of hits at second 1
-        hc.hit(1)
-        hc.hit(1)
-        # Record a hit at second 2
-        hc.hit(2)
+        # Record some hits
+        hit_counter.hit(1)  # 1 hit at timestamp 1
+        hit_counter.hit(2)  # 1 hit at timestamp 2
+        hit_counter.hit(2)  # Another hit at timestamp 2
 
-        # At second 2, we should see 3 hits in the last 300 seconds.
-        self.assertEqual(hc.getHits(2), 3, "We expect 3 hits by second 2.")
+        # Check hits within 300 seconds
+        self.assertEqual(hit_counter.getHits(2), 3)  # Hits: 1 at t=1, 2 at t=2
+        self.assertEqual(hit_counter.getHits(301), 2)  # Hits at t=301: 2 from t=2
+        self.assertEqual(hit_counter.getHits(302), 1)  # Hits at t=302: 1 from t=2
 
-        # At second 3, still 3 hits in the last 300 seconds (timestamps 1 and 2).
-        self.assertEqual(hc.getHits(3), 3, "We expect 3 hits by second 3.")
-
-    def test_hits_rolling_window(self):
-        hc = HitCounter()
-        # Suppose we add 2 hits at second 100, 1 hit at second 200.
-        hc.hit(100)
-        hc.hit(100)
-        hc.hit(200)
-
-        # At second 399, all 3 hits should still be counted (399 - 100 < 300).
-        self.assertEqual(hc.getHits(399), 3, "All hits should be counted at second 399.")
-
-        # At second 400, the hits at second 100 are exactly 300 seconds old,
-        # meaning 400 - 100 = 300, which is outside the 300-second window.
-        # So we should only count the hit at second 200.
-        self.assertEqual(hc.getHits(400), 1, "Only the hit at second 200 should remain.")
-
-    def test_edge_case_many_hits(self):
-        hc = HitCounter()
-        # Let’s add 5 hits at second 1
-        for _ in range(5):
-            hc.hit(1)
-        self.assertEqual(hc.getHits(1), 5, "We expect 5 hits by second 1.")
-
-        # Then add 300 hits at second 301 (which is exactly 300 seconds later).
-        for _ in range(300):
-            hc.hit(301)
-
-        # Now at second 301, hits at second 1 are just out of range:
-        # 301 - 1 = 300, so they're excluded. We should see 300 hits.
-        self.assertEqual(hc.getHits(301), 300, "Only the 300 hits at second 301 should be counted.")
-
-    def test_large_gap(self):
-        hc = HitCounter()
-        hc.hit(10)
-        hc.hit(10)
-        hc.hit(11)
-        # At second 1010, these hits are far outside the 300-second window.
-        self.assertEqual(hc.getHits(1010), 0, "Hits at second 10 and 11 should expire by second 1010.")
+        # Add more hits at a later timestamp
+        hit_counter.hit(600)  # 1 hit at timestamp 600
+        self.assertEqual(hit_counter.getHits(600), 1)  # Only the hit at t=600
+        self.assertEqual(hit_counter.getHits(601), 1)  # Only the hit at t=600
+        self.assertEqual(hit_counter.getHits(900), 0)  # No hits within the last 300 seconds
 
 if __name__ == "__main__":
-    unittest.main(argv=[''], exit=False)
+    unittest.main()

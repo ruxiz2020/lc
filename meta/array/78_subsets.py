@@ -1,8 +1,15 @@
 class Solution(object):
     def subsets(self, nums):
         """
-        :type nums: List[int]
-        :rtype: List[List[int]]
+        This code generates all possible subsets of a list of integers by 
+        recursively exploring each element's inclusion or exclusion.
+
+        It maintains the current subset (path) in each recursion and 
+        stores it in res before continuing to the next element.
+
+        The time complexity is O(N 2 ^N) because there are 2 ^N
+        subsets in total and constructing each subset can take up to O(N) time.
+
         O(N 2 ^N)
         O(N 2 ^N)
         """

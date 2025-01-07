@@ -1,16 +1,3 @@
-class Solution:
-    def __init__(self):
-        self.visit = {None: None}
-
-    def copyRandomList(self, head: 'Node') -> 'Node':
-        if head in self.visit:
-            return self.visit[head]
-        node = Node(head.val, None, None)
-        self.visit[head] = node
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
-        return node
-
 
 
 # Definition for a Node.
@@ -41,3 +28,44 @@ class Solution:
             copy.random = oldToCopy[cur.random]
             cur = cur.next
         return oldToCopy[head]
+
+
+
+# Test Linked List:
+# Node 1 -> Node 2 -> Node 3
+# Random pointers:
+# Node 1.random -> Node 3
+# Node 2.random -> Node 1
+# Node 3.random -> Node 2
+
+def create_linked_list():
+    node1 = Node(1)
+    node2 = Node(2)
+    node3 = Node(3)
+
+    node1.next = node2
+    node2.next = node3
+
+    node1.random = node3
+    node2.random = node1
+    node3.random = node2
+
+    return node1
+
+# Function to print the linked list for testing
+def print_list(head):
+    cur = head
+    while cur:
+        print(f"Node({cur.val}), Random({cur.random.val if cur.random else 'None'})")
+        cur = cur.next
+
+# Test the Solution
+original_list = create_linked_list()
+solution = Solution()
+cloned_list = solution.copyRandomList(original_list)
+
+print("Original list:")
+print_list(original_list)
+
+print("\nCloned list:")
+print_list(cloned_list)

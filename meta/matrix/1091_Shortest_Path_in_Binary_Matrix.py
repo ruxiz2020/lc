@@ -60,6 +60,12 @@ class Solution:
     If a path to the bottom-right corner exists, it returns the path length and the 
     full path taken; otherwise, it returns -1 and an empty list to indicate no path 
     was found.
+
+    BFS over an N×N grid: In the worst case, the algorithm visits each cell once, leading to 
+    O(N ^ 2) queue operations.
+    Copying paths for each visit: For each cell we visit, we create a new path by appending the current cell to an existing path, which can take 
+    O(N ^ 2) time in the worst case (a path can grow up to 
+    O(N ^ 2) length).
     O(N ^ 4)
     O(N ^ 4)
     """

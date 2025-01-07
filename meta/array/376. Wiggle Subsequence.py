@@ -3,6 +3,13 @@ import itertools
 
 class Solution:
     """
+    This code computes the length of the longest wiggle subsequence in an array nums,
+      where a wiggle sequence alternates between increasing and decreasing values,
+        by maintaining two counters: increasing and decreasing.
+
+    For each adjacent pair of elements, it updates the counters based on 
+    whether the current pair represents an increase or a decrease, 
+    incrementing the opposite counter to reflect a valid wiggle transition.
     O(N)
     O(1)
     """

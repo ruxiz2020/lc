@@ -44,3 +44,19 @@ class TicTacToe:
             return player
 
         return 0
+
+
+
+# Test the TicTacToe class
+def test_tic_tac_toe():
+    # Initialize a 3x3 TicTacToe board
+    ttt = TicTacToe(3)
+
+    # Player 1 moves
+    print(ttt.move(0, 0, 1))  # Player 1 moves to (0, 0); Expected: 0 (no winner yet)
+    print(ttt.move(0, 1, 2))  # Player 2 moves to (0, 1); Expected: 0 (no winner yet)
+    print(ttt.move(1, 1, 1))  # Player 1 moves to (1, 1); Expected: 0 (no winner yet)
+    print(ttt.move(0, 2, 2))  # Player 2 moves to (0, 2); Expected: 0 (no winner yet)
+    print(ttt.move(2, 2, 1))  # Player 1 moves to (2, 2); Expected: 1 (Player 1 wins)
+
+test_tic_tac_toe()
